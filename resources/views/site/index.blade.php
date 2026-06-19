@@ -12,20 +12,20 @@
     </p>
 
      <div class="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16">
-      <a href="https://calendly.com/itxaman-786/30min" target="_blank" 
+      <a href="https://calendly.com/hammad1122/new-meeting" target="_blank" 
         class="bg-brand hover:bg-green-900 px-6 py-3 sm:px-8 sm:py-4 rounded font-bold transition-all transform hover:scale-105 w-full sm:w-auto text-center">
         Book a Free Strategy Call
       </a>
       <a href="{{ route('nexagtm.price') }}" 
         class="border border-brand text-brand hover:bg-brand hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold transition-all w-full sm:w-auto text-center">
-         View Pricing →
+         View Pricing 
       </a>
      </div>
 
     
   </section>
 
-  <div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>
+<hr class="border-slate-800 max-w-6xl mx-auto">
 
 <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
   <div class="text-center mb-16">
@@ -34,8 +34,14 @@
     <p class="text-gray-400 text-lg">Five focused services covering every stage of your outbound motion.</p>
   </div>
 
-   <a href="{{ route('nexagtm.about') }}" class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-[#252525] border border-gray-800 text-brand text-sm font-semibold hover:border-brand transition-all hover:scale-105"><span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>View All Services <span class="opacity-70">&rarr;</span></a>
+<!-- Inside your existing grid, replace the header section of each card with this: -->
 
+<div class="flex justify-between items-start mb-6">
+
+    <a href="{{ route('nexagtm.about') }}" class="text-[10px] font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950] px-3 py-1 rounded-full hover:bg-[#3fb950]">
+        View
+    </a>
+</div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 transition hover:border-brand group">
       <div class="text-brand text-2xl font-black mb-4">01</div>
@@ -100,8 +106,7 @@
   </div>
 </section>
 
-
-<div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>
+<hr class="border-slate-800 max-w-6xl mx-auto">
 
 <!-- CASE STUDIES SECTION -->
 <section id="case-studies" class="py-20 px-6 max-w-7xl mx-auto">
@@ -110,6 +115,18 @@
     <h2 class="text-4xl md:text-5xl font-black mb-4">NexaGTM <span class="text-brand">Playbooks</span></h2>
     <p class="text-gray-400 text-lg">Results from real engagements. Every number is from actual campaigns we ran.</p>
   </div>
+
+
+  <!-- Inside your existing grid, replace the header section of each card with this: -->
+
+<div class="flex justify-between items-start mb-6">
+ 
+    <a href="{{ route('nexagtm.gtm-playbooks') }}" class="text-[10px] font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950] px-3 py-1 rounded-full hover:bg-[#3fb950]">
+        View
+    </a>
+</div>
+
+
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     
@@ -160,7 +177,7 @@
   </div>
 </section>
 
-<div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>
+<hr class="border-slate-800 max-w-6xl mx-auto">
 
 <!-- TESTIMONIALS SECTION -->
 
@@ -240,19 +257,18 @@
   </div>
 </section>
 
-<div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>
+<hr class="border-slate-800 max-w-6xl mx-auto">
    
 <div class="grain">
- 
-
-
-
 
 
 
 
   <!-- SECTION HEADER -->
   <div class="mb-14">
+    <br class="hidden sm:block">
+    <br class="hidden sm:block">
+    <br class="hidden sm:block">
   <div class="text-center mb-16">
     <div class="text-brand font-bold tracking-widest uppercase text-sm mb-2">Infrastructure</div>
     <h2 class="text-4xl md:text-5xl font-black mb-4">NexaGTM <span class="text-brand">The Stack</span></h2>
@@ -373,7 +389,7 @@
 
 
 
-<div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>
+<hr class="border-slate-800 max-w-6xl mx-auto">
 
   <section
     class="relative min-h-screen flex flex-col items-center justify-center px-5 py-20 overflow-hidden"
@@ -398,16 +414,16 @@
     <!-- CTA Buttons -->
     <div class="relative z-10 flex flex-wrap gap-4 justify-center">
       
-        <a href="#"
+        <a href="https://calendly.com/hammad1122/new-meeting" target="_blank"
         class="inline-flex items-center gap-2 bg-white text-black font-semibold px-7 py-3.5 rounded-md hover:bg-green-50 transition-all duration-200 hover:-translate-y-0.5"
       >
-        Schedule a Call <span class="text-lg">→</span>
+        Schedule a Call 
       </a>
       
-        <a href="#"
+        <a href="{{ route('nexagtm.contact') }}"
         class="inline-flex items-center font-semibold px-7 py-3.5 rounded-md border border-white/50 text-white hover:border-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
       >
-        Send a Message
+        Contact Us 
       </a>
     </div>
 

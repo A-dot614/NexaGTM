@@ -33,9 +33,9 @@
       </li>      
       <li>
         {{-- For anchor links like #case-studies, you can manually handle active states or leave as hover --}}
-        <a href="#case-studies" class="relative px-6 py-2 transition-all duration-300 hover:text-white group">
+        <a href="{{ route('nexagtm.gtm-playbooks') }}" class="relative px-6 py-2 transition-all duration-300 group {{ request()->routeIs('nexagtm.gtm-playbooks') ? 'text-white' : 'hover:text-white' }}">
           Playbooks
-          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#3fb950] group-hover:w-4 transition-all duration-300"></span>
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#3fb950] transition-all duration-300 {{ request()->routeIs('nexagtm.gtm-playbooks') ? 'w-4' : 'w-0 group-hover:w-4' }}"></span>
         </a>
       </li>
       <li>
@@ -53,7 +53,7 @@
     </button>
 
     <div class="hidden lg:flex items-center">
-      <a href="#" class="relative group overflow-hidden px-8 py-3 bg-[#3fb950] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(63,185,80,0.6)] hover:scale-105 flex items-center gap-2">
+      <a href="https://calendly.com/hammad1122/new-meeting" target="_blank" class="relative group overflow-hidden px-8 py-3 bg-[#3fb950] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(63,185,80,0.6)] hover:scale-105 flex items-center gap-2">
         <!-- Background hover effect -->
         <span class="absolute inset-0 w-full h-full bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
         <!-- Calendar SVG -->
@@ -71,9 +71,9 @@
   <div id="mobile-menu" class="lg:hidden hidden fixed inset-x-4 top-20 z-40 bg-[#0d1117]/95 backdrop-blur-md rounded-xl border border-[#3fb950]/20 p-6 shadow-2xl">
     <ul class="flex flex-col space-y-4 text-sm font-bold uppercase tracking-wider text-[#cbd5e1]">
       <li><a href="{{ route('home') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Home</a></li>
-      <li><a href="{{ route('nexagtm.about') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">About</a></li>
+      <li><a href="{{ route('nexagtm.about') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Services</a></li>
       <li><a href="{{ route('nexagtm.price') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Pricing</a></li>
-      <li><a href="#case-studies" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Playbooks</a></li>
+      <li><a href="{{ route('nexagtm.gtm-playbooks') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Playbooks</a></li>
       <li><a href="{{ route('nexagtm.contact') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Contact</a></li>
       <li class="pt-2 border-t border-[#2a3b45] mt-2">
         <a href="https://calendly.com/itxaman-786/30min" target="_blank" class="inline-block w-full text-center bg-[#3fb950] text-black font-bold px-4 py-2 rounded">Book a Call</a>

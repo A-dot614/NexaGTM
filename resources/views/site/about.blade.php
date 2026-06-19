@@ -1,10 +1,12 @@
 <x-layout.mainlayout>
 <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
   <div class="text-center mb-16">
-    <div class="text-brand font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
-    <h2 class="text-4xl md:text-5xl font-black mb-4">NexaGTM <span class="text-brand">Services</span></h2>
+    <br>
+    <h2 class="text-6xl md:text-5xl font-black mb-4"><span class="text-brand">About Us</span></h2>    
+    <h2 class="text-6xl md:text-5xl font-black mb-4">NexaGTM<span class="text-brand"> Services</span></h2>    
     <p class="text-gray-400 text-lg">Five focused services covering every stage of your outbound motion.</p>
   </div>
+
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 transition hover:border-brand group">
@@ -48,7 +50,7 @@
 
 </section>
 
-<div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>    
+<hr class="border-slate-800 max-w-6xl mx-auto">  
 <!-- HOW IT WORKS -->
 <section class="bg-[#0d1117] py-20 px-6" id="eta">
   <div class="max-w-5xl mx-auto">
@@ -137,36 +139,49 @@
     </div>
   </div>
 </section>  
-<div class="h-[2px] w-24 bg-[#004b23] my-8 mx-auto"></div>    
+<hr class="border-slate-800 max-w-6xl mx-auto">
 <section class="bg-[#0d1117] py-20 px-6">
   <div class="max-w-5xl mx-auto">
+    <!-- Header -->
     <div class="text-center mb-16">
-      <div class="text-[#3fb950] font-bold tracking-widest uppercase text-sm mb-2">THE PEOPLE</div>
-      <h2 class="text-4xl md:text-5xl font-black mb-4 text-white">The <span class="text-[#3fb950]">People</span></h2>
+      <div class="text-[#3fb950] font-bold tracking-[0.2em] uppercase text-xs mb-3">Our Team</div>
+      <h2 class="text-4xl md:text-5xl font-black text-white">The <span class="text-[#3fb950]">People</span></h2>
     </div>
+
+    <!-- Grid -->
     <div class="grid md:grid-cols-2 gap-8">
       
-      <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 text-center flex flex-col items-center">
-        <img src="{{ asset('pic/Abdul Pic.png') }}" alt="Abdul Rehman" class="w-32 h-32 rounded-full border-4 border-[#3fb950] mb-6 object-cover">
-        <h3 class="text-2xl font-bold text-white mb-2">Abdul Rehman (Aman)</h3>
-        <p class="text-[#3fb950] font-semibold uppercase text-sm mb-4">Co-Founder</p>
-        <p class="text-gray-400 mb-8 max-w-sm">I Help Businesses Scale with Automation — Clay expert, workflow architect, and the engine behind NexaGTM's enrichment and AI personalisation systems.</p>
+      <!-- Abdul Card -->
+      <div class="bg-[#161b22] p-8 rounded-3xl border border-[#30363d] text-center flex flex-col items-center hover:border-[#3fb950]/50 transition-all duration-300">
+        <img src="{{ asset('pic/Abdul Pic.png') }}" alt="Abdul Rehman" class="w-32 h-32 rounded-full border-4 border-[#3fb950]/30 mb-6 object-cover shadow-xl">
+        <h3 class="text-2xl font-bold text-white mb-1">Abdul Rehman (Aman)</h3>
+        <p class="text-[#3fb950] font-bold uppercase text-[10px] tracking-widest mb-6">Co-Founder</p>
+        <p class="text-[#8a9e8a] mb-8 max-w-sm text-sm leading-relaxed">
+            I Help Businesses Scale with Automation — Clay expert, workflow architect, and the engine behind NexaGTM's enrichment and AI personalisation systems.
+        </p>
         <div class="flex gap-3">
-          <button class="px-4 py-2 bg-black text-white rounded-lg border border-gray-700 hover:border-[#3fb950]">LinkedIn</button>
-          <button class="px-4 py-2 bg-black text-white rounded-lg border border-gray-700 hover:border-[#3fb950]">Upwork</button>
-          <button class="px-4 py-2 bg-black text-white rounded-lg border border-gray-700 hover:border-[#3fb950]">WhatsApp</button>
+            @foreach([['LinkedIn', 'https://www.linkedin.com/in/abdulrehman-aman/'], ['Upwork', 'https://www.upwork.com/freelancers/~010af79d147b770eb1'], ['WhatsApp', 'https://wa.me/923257180271']] as $link)
+                <a href="{{ $link[1] }}" target="_blank" class="px-5 py-2.5 bg-[#0d1117] text-white text-xs font-bold rounded-xl border border-[#30363d] hover:border-[#3fb950] hover:text-[#3fb950] transition-all">
+                    {{ $link[0] }}
+                </a>
+            @endforeach
         </div>
       </div>
 
-      <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 text-center flex flex-col items-center">
-        <img src="{{ asset('pic/Hammad Pic.png') }}" alt="Muhammad Hammad" class="w-32 h-32 rounded-full border-4 border-[#3fb950] mb-6 object-cover">
-        <h3 class="text-2xl font-bold text-white mb-2">Muhammad Hammad</h3>
-        <p class="text-[#3fb950] font-semibold uppercase text-sm mb-4">Founder</p>
-        <p class="text-gray-400 mb-8 max-w-sm">I Help SMBs Book Meetings with the Right Prospects — outbound strategist, sequencing expert, and responsible for ICP targeting and appointment setting results.</p>
+      <!-- Hammad Card -->
+      <div class="bg-[#161b22] p-8 rounded-3xl border border-[#30363d] text-center flex flex-col items-center hover:border-[#3fb950]/50 transition-all duration-300">
+        <img src="{{ asset('pic/Hammad Pic.png') }}" alt="Muhammad Hammad" class="w-32 h-32 rounded-full border-4 border-[#3fb950]/30 mb-6 object-cover shadow-xl">
+        <h3 class="text-2xl font-bold text-white mb-1">Muhammad Hammad</h3>
+        <p class="text-[#3fb950] font-bold uppercase text-[10px] tracking-widest mb-6">Founder</p>
+        <p class="text-[#8a9e8a] mb-8 max-w-sm text-sm leading-relaxed">
+            I Help SMBs Book Meetings with the Right Prospects — outbound strategist, sequencing expert, and responsible for ICP targeting and appointment setting results.
+        </p>
         <div class="flex gap-3">
-          <button class="px-4 py-2 bg-black text-white rounded-lg border border-gray-700 hover:border-[#3fb950]">LinkedIn</button>
-          <button class="px-4 py-2 bg-black text-white rounded-lg border border-gray-700 hover:border-[#3fb950]">Upwork</button>
-          <button class="px-4 py-2 bg-black text-white rounded-lg border border-gray-700 hover:border-[#3fb950]">WhatsApp</button>
+            @foreach([['LinkedIn', 'https://www.linkedin.com/in/gtmautomationexpert/'], ['Upwork', 'https://www.upwork.com/freelancers/~01ce573140b4d99a43'], ['WhatsApp', 'https://wa.me/923444543772']] as $link)
+                <a href="{{ $link[1] }}" target="_blank" class="px-5 py-2.5 bg-[#0d1117] text-white text-xs font-bold rounded-xl border border-[#30363d] hover:border-[#3fb950] hover:text-[#3fb950] transition-all">
+                    {{ $link[0] }}
+                </a>
+            @endforeach
         </div>
       </div>
 

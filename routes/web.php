@@ -12,7 +12,7 @@ Route::get('/about', [NexagtmController::class, 'about'])->name('nexagtm.about')
 // Route::get('/team',[NexagtmController::class, 'team'])->name('nexagtm.team');
 Route::get('/gtm-playbooks', [NexagtmController::class, 'gtmPlaybooks'])->name('nexagtm.gtm-playbooks');
 
-Route::get('/dashboard', function () {
+Route::get('///////dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
