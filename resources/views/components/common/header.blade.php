@@ -46,13 +46,59 @@
       </li>      
     </ul>
 
-    {{-- CTA --}}
-    <div class="flex items-center">
-      <a href="#" class="relative group overflow-hidden px-8 py-3 bg-[#3fb950] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(63,185,80,0.6)] hover:scale-105">
+    <!-- Mobile hamburger -->
+    <button id="mobile-menu-button" class="lg:hidden flex items-center ml-3 p-2 rounded-md text-[#cbd5e1] hover:text-white" aria-label="Open mobile menu">
+      <svg id="hamburger-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <svg id="hamburger-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+
+    <div class="hidden lg:flex items-center">
+      <a href="#" class="relative group overflow-hidden px-8 py-3 bg-[#3fb950] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(63,185,80,0.6)] hover:scale-105 flex items-center gap-2">
+        <!-- Background hover effect -->
         <span class="absolute inset-0 w-full h-full bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
+        <!-- Calendar SVG -->
+        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+        </svg>
+        <!-- Text -->
         <span class="relative z-10">Book a Call</span>
       </a>
     </div>
+
+  </div>
+
+  <!-- Mobile menu (hidden on large screens) -->
+  <div id="mobile-menu" class="lg:hidden hidden fixed inset-x-4 top-20 z-40 bg-[#0d1117]/95 backdrop-blur-md rounded-xl border border-[#3fb950]/20 p-6 shadow-2xl">
+    <ul class="flex flex-col space-y-4 text-sm font-bold uppercase tracking-wider text-[#cbd5e1]">
+      <li><a href="{{ route('home') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Home</a></li>
+      <li><a href="{{ route('nexagtm.about') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">About</a></li>
+      <li><a href="{{ route('nexagtm.price') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Pricing</a></li>
+      <li><a href="#case-studies" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Playbooks</a></li>
+      <li><a href="{{ route('nexagtm.contact') }}" class="block px-3 py-2 rounded hover:text-white" onclick="toggleMobileMenu(false)">Contact</a></li>
+      <li class="pt-2 border-t border-[#2a3b45] mt-2">
+        <a href="https://calendly.com/itxaman-786/30min" target="_blank" class="inline-block w-full text-center bg-[#3fb950] text-black font-bold px-4 py-2 rounded">Book a Call</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleMobileMenu(show) {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('hamburger-open');
+      const closeIcon = document.getElementById('hamburger-close');
+      if (typeof show === 'boolean') {
+        if (show) { menu.classList.remove('hidden'); openIcon.classList.add('hidden'); closeIcon.classList.remove('hidden'); }
+        else { menu.classList.add('hidden'); openIcon.classList.remove('hidden'); closeIcon.classList.add('hidden'); }
+        return;
+      }
+      const isHidden = menu.classList.contains('hidden');
+      toggleMobileMenu(isHidden);
+    }
+
+    document.getElementById('mobile-menu-button').addEventListener('click', function(e){ toggleMobileMenu(); });
+    // Hide mobile menu on larger screens
+    window.addEventListener('resize', function(){ if (window.innerWidth >= 1024) toggleMobileMenu(false); });
+  </script>
 
   </nav>
 </div>

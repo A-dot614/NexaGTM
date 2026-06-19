@@ -1,13 +1,13 @@
 <x-layout.mainlayout>
 
   {{-- ── HERO ── --}}
-  <div class="max-w-5xl mx-auto px-6 py-16 text-center">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 text-center">
     <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-4">NexaGTM · Client Pricing</p>
-    <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+    <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
       Pay Only for<br>
       <span class="bg-gradient-to-r from-[#004b23] to-[#006430] bg-clip-text text-transparent">Results.</span>
     </h1>
-    <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-6">
+    <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-6">
       Performance-driven GTM systems, verified lead data, and custom automation for outbound and recruitment agencies.
     </p>
     <div class="flex justify-center gap-3">

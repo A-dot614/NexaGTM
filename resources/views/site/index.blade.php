@@ -1,26 +1,26 @@
 <x-layout.mainlayout>
-  <section class="max-w-6xl mx-auto px-6 py-24 animate-fade-in-up">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 animate-fade-in-up">
     <div class="text-sm font-semibold text-brand tracking-widest uppercase mb-4">Performance-Driven GTM Agency</div>
     
-    <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
-        We Build the Pipeline.<br>
-        <span class="text-brand">You Close the Deals.</span>
+    <h1 class="text-3xl md:text-5xl lg:text-7xl font-black leading-tight mb-4 md:mb-6">
+      We Build the Pipeline.<br>
+      <span class="text-brand">You Close the Deals.</span>
     </h1>
     
-    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10">
-        NexaGTM is a two-founder GTM agency specialising in outbound systems, verified lead data, and custom automation — built for recruitment agencies, SaaS companies, and B2B service firms ready to scale.
+    <p class="text-base md:text-lg text-gray-400 max-w-2xl mb-8 md:mb-10">
+      NexaGTM is a two-founder GTM agency specialising in outbound systems, verified lead data, and custom automation — built for recruitment agencies, SaaS companies, and B2B service firms ready to scale.
     </p>
 
-    <div class="flex flex-wrap gap-4 mb-16">
+     <div class="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16">
       <a href="https://calendly.com/itxaman-786/30min" target="_blank" 
-         class="bg-brand hover:bg-green-900 px-8 py-4 rounded font-bold transition-all transform hover:scale-105">
-         Book a Free Strategy Call
+        class="bg-brand hover:bg-green-900 px-6 py-3 sm:px-8 sm:py-4 rounded font-bold transition-all transform hover:scale-105 w-full sm:w-auto text-center">
+        Book a Free Strategy Call
       </a>
       <a href="{{ route('nexagtm.price') }}" 
-         class="border border-brand text-brand hover:bg-brand hover:text-white px-8 py-4 rounded font-bold transition-all">
-          View Pricing →
+        class="border border-brand text-brand hover:bg-brand hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold transition-all w-full sm:w-auto text-center">
+         View Pricing →
       </a>
-    </div>
+     </div>
 
     
   </section>
