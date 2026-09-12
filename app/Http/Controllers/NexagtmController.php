@@ -10,6 +10,8 @@ use App\Mail\ContactUserMail;
 use App\Mail\CallBookedAdminMail;
 use App\Mail\CallBookedUserMail;
 use App\Models\CallBooking;
+use App\Models\ActivityLog;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Nexagtm;
@@ -98,6 +100,10 @@ class NexagtmController extends Controller
     {
         $data = $request->validated();
 
+        $contact = Contact::create($data);
+
+        ActivityLog::record('contact', 'submission', 'New contact message from ' . $data['name'] . ' (' . $data['email'] . ')', $data, Contact::class, $contact->id);
+
         $rawAdminEmail = config('services.admin_email') ?: env('ADMIN_EMAIL') ?: config('mail.from.address');
         $adminEmails = array_filter(array_map('trim', explode(',', (string) $rawAdminEmail)));
 
@@ -155,6 +161,8 @@ class NexagtmController extends Controller
         ]);
 
         CallBooking::create($validated);
+
+        ActivityLog::record('booking', 'submission', 'New call booking request from ' . $validated['name'] . ' (' . $validated['email'] . ')', $validated);
 
         // Resolve admin recipients (supports multiple comma-separated emails or single address)
         $rawAdminEmail = config('services.admin_email') ?: env('ADMIN_EMAIL') ?: config('mail.from.address');

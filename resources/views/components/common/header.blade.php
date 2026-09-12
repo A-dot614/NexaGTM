@@ -8,7 +8,7 @@
       {{-- BRAND LOGO --}}
       <a href="{{ route('home') }}" class="flex items-center gap-3 group cursor-pointer relative">
         <div class="w-9 h-9 sm:w-10 sm:h-10 clay-badge flex items-center justify-center group-hover:rotate-[360deg] transition-transform duration-700 flex-shrink-0">
-          <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM Logo" class="w-5 h-5 sm:w-6 sm:h-6 object-contain">
+          <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM Logo" class="w-5 h-5 sm:w-6 sm:h-6 object-contain">
         </div>
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl font-bold tracking-tight text-white">

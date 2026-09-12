@@ -13,8 +13,8 @@
 </div>
 
 <!-- Sidebar Drawer -->
-<aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-       class="app-rail fixed inset-y-0 left-0 z-50 w-64 xl:w-72 bg-[#161b22] border-r border-[#30363d] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:static lg:inset-auto lg:z-auto lg:translate-x-0 lg:h-full">
+<aside :class="sidebarOpen ? 'translate-x-0' : 'translate-x-full'"
+       class="app-rail fixed inset-y-0 right-0 z-50 w-64 xl:w-72 bg-[#161b22] border-l border-[#30363d] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:static lg:inset-auto lg:z-auto lg:translate-x-0 lg:h-full lg:border-l-0 lg:border-r">
     
     <!-- Top Section: Brand & Nav Links -->
     <div class="flex-1 flex flex-col min-h-0 overflow-y-auto">
@@ -23,7 +23,7 @@
         <div class="h-16 px-6 flex items-center justify-between border-b border-[#30363d] bg-[#0d1117]/50">
             <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
                 <div class="w-9 h-9 bg-[#3fb950] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(63,185,80,0.35)] group-hover:rotate-12 transition-transform duration-300">
-                    <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM" class="w-5 h-5 object-contain">
+                    <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM" class="w-5 h-5 object-contain">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-lg font-black text-white tracking-tight leading-none">
@@ -76,9 +76,45 @@
                         <span>Dashboard</span>
                     </a>
 
+                    <!-- Analytics Link -->
+                    <a href="{{ route('dashboard.analytics') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('dashboard.analytics') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('dashboard.analytics') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        <span>Analytics</span>
+                    </a>
+
+                    <!-- Activity Logs Link -->
+                    <a href="{{ route('dashboard.audit') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('dashboard.audit') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('dashboard.audit') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span>Activity Logs</span>
+                    </a>
+
                     
 
                     
+
+                    <!-- Contact Inbox Link -->
+                    <a href="{{ route('dashboard.contacts') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('dashboard.contacts*') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('dashboard.contacts*') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Contact Inbox</span>
+                    </a>
+
+                    <!-- Call Bookings Link -->
+                    <a href="{{ route('dashboard.bookings') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('dashboard.bookings*') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('dashboard.bookings*') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Call Bookings</span>
+                    </a>
 
                     <!-- Testimonials Link -->
                     <a href="{{ route('dashboard.testimonials') }}" 

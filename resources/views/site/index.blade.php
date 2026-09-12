@@ -28,13 +28,13 @@
 
             <!-- Dual Action CTAs (Skeuomorphism + Neomorphism) -->
             <div class="flex flex-col sm:flex-row justify-center items-center gap-5 mb-12">
-                <a href="{{ route('nexagtm.book-call') }}" 
+                <a href="{{ route('nexagtm.book-call') }}"
                    class="skeuo-button w-full sm:w-auto px-9 py-4 text-white font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 relative">
                     <span class="style-tag style-tag-skeuo">Skeuomorphism</span>
                     <i class="fa-solid fa-calendar-days text-sm"></i>
                     <span>Book a Free Strategy Call</span>
                 </a>
-                <a href="{{ route('nexagtm.price') }}" 
+                <a href="{{ route('nexagtm.price') }}"
                    class="neomorph-button w-full sm:w-auto px-8 py-4 text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 relative">
                     <span class="style-tag style-tag-neomorph">Neomorphism</span>
                     <span>Explore Pricing & Models</span>
@@ -83,7 +83,7 @@
                         Three specialized service tracks designed to eliminate pipeline dry spells and build enduring outbound assets.
                     </p>
                 </div>
-                <a href="{{ route('nexagtm.about') }}" 
+                <a href="{{ route('nexagtm.about') }}"
                    class="clay-pill inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors px-5 py-2.5 self-start md:self-end">
                     <span>Learn About Our Process</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -307,7 +307,7 @@
                         Actual results achieved for our clients through custom Clay workflows and automated multichannel execution.
                     </p>
                 </div>
-                <a href="{{ route('nexagtm.gtm-playbooks') }}" 
+                <a href="{{ route('nexagtm.gtm-playbooks') }}"
                    class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950]/40 hover:border-[#3fb950] px-4 py-2.5 rounded-full hover:bg-[#3fb950]/10 self-start md:self-end">
                     <span>View All Playbooks</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -403,53 +403,12 @@
                 </p>
             </div>
 
-            <!-- Infinite Scroll Container -->
-            @php
-                $fallbackTestimonials = [
-                    [
-                        'client_name' => 'Nimo Shkedy',
-                        'company' => 'Impact11',
-                        'role' => 'Founder',
-                        'rating' => 5,
-                        'content' => 'Aman is an absolute hacker when it comes to Clay.com. His expertise is next level... Highly recommend him for any advanced outbound workflow.',
-                        'avatar_url' => asset('pic/Nimo Shkedy.jpeg'),
-                    ],
-                    [
-                        'client_name' => 'Tony S.',
-                        'company' => 'PropertyOnion',
-                        'role' => 'President',
-                        'rating' => 5,
-                        'content' => 'Very knowledgeable and a tremendous help with Clay tables and enrichments. Fast, reliable, and trustworthy. We will definitely work with them again!',
-                        'avatar_url' => asset('pic/Tony S.jpeg'),
-                    ],
-                    [
-                        'client_name' => 'Jay H.',
-                        'company' => 'JZ Creates',
-                        'role' => 'Owner',
-                        'rating' => 5,
-                        'content' => 'I hired Muhammad and his team to help generate leads for my cold email. They elevated my entire approach and the open rates were incredible. Highly recommend!',
-                        'avatar_url' => asset('pic/JayH.jpeg'),
-                    ],
-                    [
-                        'client_name' => 'Jeff Brown',
-                        'company' => 'PaveTalent',
-                        'role' => 'Founder',
-                        'rating' => 5,
-                        'content' => 'These guys are geniuses. They literally helped us book 30 sales meetings per month with their custom recruiting workflow and outbound engine.',
-                        'avatar_url' => asset('pic/Jeff Brown.jpeg'),
-                    ],
-                ];
-
-                $marqueeTestimonials = $testimonials->count() > 0
-                    ? $testimonials
-                    : collect($fallbackTestimonials);
-            @endphp
 
             <div class="relative flex overflow-x-hidden">
                 <div class="animate-marquee whitespace-nowrap flex gap-6">
                     @for($i = 0; $i < 2; $i++)
                         <div class="flex gap-6">
-                            @foreach($marqueeTestimonials as $t)
+                            @foreach($testimonials as $t)
                                 @php
                                     $tAvatar = $t->avatar ?? ($t['avatar_url'] ?? null);
                                     $tName = is_object($t) ? $t->client_name : $t['client_name'];
@@ -604,13 +563,13 @@
                     </p>
 
                     <div class="flex flex-wrap justify-center gap-5">
-                        <a href="{{ route('nexagtm.book-call') }}" 
+                        <a href="{{ route('nexagtm.book-call') }}"
                            class="skeuo-button px-9 py-4 text-white font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 relative">
                             <span class="style-tag style-tag-skeuo">Skeuomorphism</span>
                             <i class="fa-solid fa-calendar-days"></i>
                             <span>Schedule a Free Strategy Call</span>
                         </a>
-                        <a href="{{ route('nexagtm.contact') }}" 
+                        <a href="{{ route('nexagtm.contact') }}"
                            class="neomorph-button px-8 py-4 text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 relative">
                             <span class="style-tag style-tag-neomorph">Neomorphism</span>
                             <i class="fa-regular fa-envelope"></i>

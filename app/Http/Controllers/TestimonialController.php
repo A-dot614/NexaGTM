@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
+use App\Models\ActivityLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -38,6 +39,8 @@ class TestimonialController extends Controller
         }
 
         Testimonial::create($validated + $this->resolveStatus($request));
+
+        ActivityLog::record('testimonial', 'created', 'New testimonial added for ' . $validated['client_name']);
 
         return redirect()->route('dashboard.testimonials')
             ->with('status', 'Testimonial added successfully.');
@@ -75,6 +78,8 @@ class TestimonialController extends Controller
 
         $testimonial->update($validated + $this->resolveStatus($request));
 
+        ActivityLog::record('testimonial', 'updated', 'Testimonial for ' . $validated['client_name'] . ' updated');
+
         return redirect()->route('dashboard.testimonials')
             ->with('status', 'Testimonial updated successfully.');
     }
@@ -89,6 +94,8 @@ class TestimonialController extends Controller
         }
 
         $testimonial->delete();
+
+        ActivityLog::record('testimonial', 'deleted', 'Testimonial for ' . $testimonial->client_name . ' deleted');
 
         return redirect()->route('dashboard.testimonials')
             ->with('status', 'Testimonial deleted successfully.');

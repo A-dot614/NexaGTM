@@ -14,7 +14,7 @@
         <!-- Logo Chip (Desktop) -->
         <a href="{{ route('dashboard') }}" class="hidden md:flex items-center gap-2 shrink-0 group">
             <span class="w-7 h-7 rounded-lg bg-[#3fb950] flex items-center justify-center shadow-[0_0_12px_rgba(63,185,80,0.35)] group-hover:rotate-12 transition-transform duration-300">
-                <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM" class="w-4 h-4 object-contain">
+                <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM" class="w-4 h-4 object-contain">
             </span>
             <span class="text-sm font-black tracking-tight text-white leading-none">Nexa<span class="text-[#3fb950]">GTM</span></span>
         </a>

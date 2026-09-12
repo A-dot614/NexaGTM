@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
                         <div class="clay-badge w-9 h-9 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                            <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM" class="w-5 h-5 object-contain">
+                            <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM" class="w-5 h-5 object-contain">
                         </div>
                         <span class="text-xl font-black text-white tracking-tight">
                             Nexa<span class="text-[#3fb950]">GTM</span>

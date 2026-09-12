@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'NexaGTM') }}</title>
+        <link rel="icon" type="image/png" href="{{ asset('pic/logo.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +31,7 @@
             <div class="relative z-10 mb-8 transition transform hover:scale-105">
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
                     <div class="clay-badge w-12 h-12 flex items-center justify-center">
-                        <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM" class="w-7 h-7 object-contain">
+                        <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM" class="w-7 h-7 object-contain">
                     </div>
                     <span class="text-3xl font-black text-white tracking-tight">
                         Nexa<span class="text-[#3fb950]">GTM</span>

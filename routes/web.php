@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\AuditController;
+use App\Http\Controllers\CallBookingController;
 use App\Http\Controllers\NexagtmController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [NexagtmController::class, 'index'])->name('home');
@@ -35,6 +39,30 @@ Route::patch('/dashboard/testimonials/{testimonial}', [TestimonialController::cl
     ->middleware(['auth', 'verified'])->name('dashboard.testimonials.update');
 Route::delete('/dashboard/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])
     ->middleware(['auth', 'verified'])->name('dashboard.testimonials.destroy');
+
+Route::get('/dashboard/contacts', [ContactController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard.contacts');
+Route::get('/dashboard/contacts/{contact}', [ContactController::class, 'show'])
+    ->middleware(['auth', 'verified'])->name('dashboard.contacts.show');
+Route::patch('/dashboard/contacts/{contact}', [ContactController::class, 'update'])
+    ->middleware(['auth', 'verified'])->name('dashboard.contacts.update');
+Route::delete('/dashboard/contacts/{contact}', [ContactController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])->name('dashboard.contacts.destroy');
+
+Route::get('/dashboard/bookings', [CallBookingController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard.bookings');
+Route::get('/dashboard/bookings/{booking}', [CallBookingController::class, 'show'])
+    ->middleware(['auth', 'verified'])->name('dashboard.bookings.show');
+Route::patch('/dashboard/bookings/{booking}', [CallBookingController::class, 'update'])
+    ->middleware(['auth', 'verified'])->name('dashboard.bookings.update');
+Route::delete('/dashboard/bookings/{booking}', [CallBookingController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])->name('dashboard.bookings.destroy');
+
+Route::get('/dashboard/analytics', [AnalyticsController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard.analytics');
+
+Route::get('/dashboard/audit', [AuditController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard.audit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

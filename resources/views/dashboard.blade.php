@@ -2,15 +2,21 @@
     {{-- 
         NexaGTM Dashboard
         ─────────────────
-        Shows:
-          - Welcome greeting with user name & workspace
-          - Account stats cards (Verification, Company, Member Since)
-          - Quick actions (Book Call, Edit Profile, View Playbooks, Contact)
-          - Scheduled Consultations / Recent Bookings
-          - Getting Started Onboarding Checklist
+        Central hub — links to Contact Inbox, Call Bookings, Testimonials & Analytics,
+        plus a live overview of the newest submissions.
     --}}
 
-    <x-slot name="title">Account &amp; Pipeline Overview</x-slot>
+    <x-slot name="title">Dashboard</x-slot>
+
+    @php
+        $contacts = \App\Models\Contact::count();
+        $newContacts = \App\Models\Contact::where('status', 'new')->count();
+        $bookings = \App\Models\CallBooking::count();
+        $scheduledBookings = \App\Models\CallBooking::where('status', 'scheduled')->count();
+        $testimonials = \App\Models\Testimonial::count();
+        $recentContacts = \App\Models\Contact::latest()->take(4)->get();
+        $recentBookings = \App\Models\CallBooking::latest()->take(4)->get();
+    @endphp
 
     <div class="max-w-7xl mx-auto space-y-6">
 
@@ -23,196 +29,159 @@
                         <span class="skeuo-led inline-block"></span> GTM Portal Active
                     </div>
                     <h1 class="text-2xl md:text-3xl font-black tracking-tight">
-                        Welcome back, {{ Auth::user()->name }} 👋
+                        Welcome back, {{ Auth::user()->name }}
                     </h1>
                     <p class="mt-1 text-[#c9d1d9] text-sm md:text-base">
-                        Your outbound strategy workspace is live. Review your pipeline health, access battle-tested playbooks, or schedule a 1-on-1 consultation.
+                        Del pipeline, conversation aur reviews all ek jagah. Dashboard se contacts, bookings, testimonials aur analytics manage karein.
                     </p>
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
-                    <a href="{{ route('nexagtm.book-call') }}" class="skeuo-button px-5 py-3 text-[#0d1117] font-black text-xs uppercase tracking-wider rounded-xl flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        <span>Schedule Call</span>
-                    </a>
-                    <a href="{{ route('nexagtm.gtm-playbooks') }}" class="neomorph-well px-5 py-3 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition">
-                        Playbooks
+                    <a href="{{ route('dashboard.analytics') }}" class="skeuo-button px-5 py-3 text-[#0d1117] font-black text-xs uppercase tracking-wider rounded-xl flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        <span>Open Analytics</span>
                     </a>
                 </div>
             </div>
         </div>
 
-        {{-- Stats Cards: Neomorphism with Debossed Wells --}}
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {{-- Module Hub Cards: Neomorphism --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-            {{-- Email Verification Status --}}
-            <div class="neomorph-card rounded-2xl p-6 relative">
-                <div class="flex items-center justify-between">
-                    <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider">Email Verification</p>
-                    <span class="skeuo-led inline-block {{ Auth::user()->email_verified_at ? '' : 'bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.6)]' }}"></span>
+            {{-- Contact Inbox --}}
+            <a href="{{ route('dashboard.contacts') }}" class="neomorph-card rounded-2xl p-6 relative group transition hover:border-[#3fb950]/60">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-11 h-11 rounded-xl bg-[#3fb950]/15 border border-[#3fb950]/40 text-[#3fb950] flex items-center justify-center text-base transition group-hover:scale-110">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </span>
+                    @if($newContacts > 0)
+                        <span class="text-[10px] px-2.5 py-1 rounded-full bg-[#3fb950]/20 text-[#3fb950] font-mono font-bold">{{ $newContacts }} new</span>
+                    @endif
                 </div>
-                <p class="mt-2 text-2xl font-black {{ Auth::user()->email_verified_at ? 'text-[#3fb950]' : 'text-amber-400' }}">
-                    {{ Auth::user()->email_verified_at ? '✓ Verified' : '⚠ Pending' }}
-                </p>
-                @unless(Auth::user()->email_verified_at)
-                    <form method="POST" action="{{ route('verification.send') }}" class="mt-2">
-                        @csrf
-                        <button type="submit" class="text-xs text-[#3fb950] underline hover:text-white transition font-mono">
-                            Resend verification link
-                        </button>
-                    </form>
-                @else
-                    <p class="text-xs text-[#8a9e8a] mt-1 font-mono">Security &amp; 2FA protection active</p>
-                @endunless
-            </div>
+                <p class="text-3xl font-black text-white">{{ $contacts }}</p>
+                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider mt-1">Contact Inbox</p>
+                <p class="text-xs text-[#8a9e8a] mt-1">Messages from the contact page</p>
+            </a>
 
-            {{-- Organization / Account --}}
-            <div class="neomorph-card rounded-2xl p-6 relative">
-                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider">Organization / Workspace</p>
-                <p class="mt-2 text-2xl font-black text-white truncate">
-                    {{ Auth::user()->company ?? 'Personal Account' }}
-                </p>
-                <p class="text-xs text-[#8a9e8a] mt-1 truncate font-mono">{{ Auth::user()->email }}</p>
-            </div>
+            {{-- Call Bookings --}}
+            <a href="{{ route('dashboard.bookings') }}" class="neomorph-card rounded-2xl p-6 relative group transition hover:border-[#3fb950]/60">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-11 h-11 rounded-xl bg-[#58a6ff]/15 border border-[#58a6ff]/40 text-[#58a6ff] flex items-center justify-center transition group-hover:scale-110">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </span>
+                    @if($scheduledBookings > 0)
+                        <span class="text-[10px] px-2.5 py-1 rounded-full bg-[#58a6ff]/15 text-[#58a6ff] font-mono font-bold">{{ $scheduledBookings }} scheduled</span>
+                    @endif
+                </div>
+                <p class="text-3xl font-black text-white">{{ $bookings }}</p>
+                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider mt-1">Call Bookings</p>
+                <p class="text-xs text-[#8a9e8a] mt-1">Strategy call requests</p>
+            </a>
 
-            {{-- Member Since --}}
-            <div class="neomorph-card rounded-2xl p-6 relative">
-                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider">Member Since</p>
-                <p class="mt-2 text-2xl font-black text-white">
-                    {{ Auth::user()->created_at ? Auth::user()->created_at->format('M Y') : 'Active' }}
-                </p>
-                <p class="text-xs text-[#8a9e8a] mt-1 font-mono">
-                    {{ Auth::user()->created_at ? Auth::user()->created_at->diffForHumans() : 'Recent' }}
-                </p>
-            </div>
+            {{-- Testimonials --}}
+            <a href="{{ route('dashboard.testimonials') }}" class="neomorph-card rounded-2xl p-6 relative group transition hover:border-[#3fb950]/60">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/40 text-amber-400 flex items-center justify-center transition group-hover:scale-110">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </span>
+                </div>
+                <p class="text-3xl font-black text-white">{{ $testimonials }}</p>
+                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider mt-1">Testimonials</p>
+                <p class="text-xs text-[#8a9e8a] mt-1">Client reviews &amp; social proof</p>
+            </a>
+
+            {{-- Analytics --}}
+            <a href="{{ route('dashboard.analytics') }}" class="neomorph-card rounded-2xl p-6 relative group transition hover:border-[#3fb950]/60">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-11 h-11 rounded-xl bg-[#d29922]/15 border border-[#d29922]/40 text-[#d29922] flex items-center justify-center transition group-hover:scale-110">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </span>
+                </div>
+                <p class="text-3xl font-black text-white">Insights</p>
+                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider mt-1">Analytics</p>
+                <p class="text-xs text-[#8a9e8a] mt-1">Trends, sources &amp; breakdowns</p>
+            </a>
+
         </div>
 
-        {{-- Scheduled Calls: Spatial UI Card --}}
-        @php
-            $recentBookings = \App\Models\CallBooking::where('email', Auth::user()->email)->latest()->take(3)->get();
-        @endphp
+        {{-- Recent Activity --}}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        <div class="spatial-card rounded-3xl p-6 relative">
-            <span class="style-tag spatial">Spatial UI</span>
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-base font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                    <span>📅 Strategy Sessions &amp; Calls</span>
-                </h3>
-                <a href="{{ route('nexagtm.book-call') }}" class="text-xs font-bold text-[#3fb950] hover:underline flex items-center gap-1">
-                    <span>+ Book Another Call</span>
-                    <span>&rarr;</span>
-                </a>
-            </div>
+            {{-- Recent Contacts --}}
+            <div class="spatial-card rounded-3xl p-6 relative">
+                <span class="style-tag spatial">Spatial UI</span>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-base font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                        <span>Latest Contact Messages</span>
+                    </h3>
+                    <a href="{{ route('dashboard.contacts') }}" class="text-xs font-bold text-[#3fb950] hover:underline flex items-center gap-1">
+                        <span>View All</span><span>&rarr;</span>
+                    </a>
+                </div>
 
-            @if($recentBookings->count() > 0)
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    @foreach($recentBookings as $booking)
-                        <div class="neomorph-well p-4 rounded-xl flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full {{ $booking->call_type === 'video' ? 'clay-badge text-[#3fb950]' : 'bg-[#1c2d42] text-[#58a6ff] border border-[#388bfd]/40' }}">
-                                        {{ $booking->call_type === 'video' ? '📹 Video Call' : '📞 Voice Call' }}
-                                    </span>
-                                    <span class="text-[10px] text-[#8a9e8a] font-mono capitalize">{{ $booking->status }}</span>
+                @if($recentContacts->count() > 0)
+                    <ul class="space-y-3">
+                        @foreach($recentContacts as $c)
+                            <li class="neomorph-well p-3.5 rounded-xl flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full bg-[#3fb950]/20 border border-[#3fb950]/40 text-[#3fb950] flex items-center justify-center font-black text-xs uppercase flex-shrink-0">
+                                    {{ substr($c->name, 0, 1) }}
                                 </div>
-                                <h4 class="font-bold text-white text-sm">
-                                    {{ \Carbon\Carbon::parse($booking->date)->format('l, M j, Y') }}
-                                </h4>
-                                <p class="text-xs font-semibold text-[#3fb950] mt-0.5">{{ $booking->time_slot }}</p>
-                                <p class="text-[11px] text-[#8a9e8a] mt-1 font-mono">🌍 {{ $booking->timezone }}</p>
-                                @if($booking->topic)
-                                    <p class="text-xs text-[#c9d1d9] mt-2 truncate font-medium">Topic: {{ $booking->topic }}</p>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="neomorph-well p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div>
-                        <h4 class="font-bold text-white text-sm">No scheduled strategy sessions yet</h4>
-                        <p class="text-xs text-[#8a9e8a] mt-1">
-                            Book a free 30-minute consultation with our founders to analyze your ICP and outbound architecture.
-                        </p>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <p class="font-bold text-white text-sm truncate">{{ $c->name }}</p>
+                                        <span class="text-[10px] text-[#8a9e8a] font-mono flex-shrink-0">{{ $c->created_at->diffForHumans() }}</span>
+                                    </div>
+                                    <p class="text-xs text-[#8a9e8a] truncate">{{ $c->subject }} — {{ Str::limit($c->message, 60) }}</p>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <div class="neomorph-well p-6 rounded-2xl text-center">
+                        <p class="text-sm font-bold text-white">No contact messages yet</p>
+                        <p class="text-xs text-[#8a9e8a] mt-1">Submissions from the contact page will appear here.</p>
                     </div>
-                    <a href="{{ route('nexagtm.book-call') }}" class="skeuo-button px-5 py-2.5 text-[#0d1117] font-black text-xs uppercase tracking-wider rounded-xl flex-shrink-0">
-                        Schedule Free 30-Min Call
+                @endif
+            </div>
+
+            {{-- Recent Bookings --}}
+            <div class="spatial-card rounded-3xl p-6 relative">
+                <span class="style-tag spatial">Spatial UI</span>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-base font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                        <span>Latest Call Bookings</span>
+                    </h3>
+                    <a href="{{ route('dashboard.bookings') }}" class="text-xs font-bold text-[#3fb950] hover:underline flex items-center gap-1">
+                        <span>View All</span><span>&rarr;</span>
                     </a>
                 </div>
-            @endif
-        </div>
 
-        {{-- Quick Actions: Neomorphic Cards --}}
-        <div class="neomorph-card rounded-2xl p-6 relative">
-            <h3 class="text-base font-bold uppercase tracking-wider text-white mb-4">Quick Navigation</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <a href="{{ route('nexagtm.book-call') }}"
-                    class="neomorph-well flex items-center gap-3.5 p-4 rounded-xl group transition">
-                    <span class="w-10 h-10 rounded-xl clay-badge text-lg flex items-center justify-center transition group-hover:scale-110">📅</span>
-                    <div class="min-w-0">
-                        <p class="font-bold text-sm text-white group-hover:text-[#3fb950] transition truncate">Book Strategy Call</p>
-                        <p class="text-xs text-[#8a9e8a] truncate">Video or voice 1-on-1</p>
+                @if($recentBookings->count() > 0)
+                    <ul class="space-y-3">
+                        @foreach($recentBookings as $b)
+                            <li class="neomorph-well p-3.5 rounded-xl flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full bg-[#58a6ff]/20 border border-[#58a6ff]/40 text-[#58a6ff] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <p class="font-bold text-white text-sm truncate">{{ $b->name }}</p>
+                                        <span class="text-[10px] text-[#8a9e8a] font-mono flex-shrink-0">{{ $b->created_at->diffForHumans() }}</span>
+                                    </div>
+                                    <p class="text-xs text-[#8a9e8a] truncate">
+                                        {{ ucfirst($b->call_type) }} call · {{ \Carbon\Carbon::parse($b->date)->format('M j, Y') }} — {{ $b->time_slot }}
+                                    </p>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <div class="neomorph-well p-6 rounded-2xl text-center">
+                        <p class="text-sm font-bold text-white">No call bookings yet</p>
+                        <p class="text-xs text-[#8a9e8a] mt-1">Strategy call requests from the booking page will appear here.</p>
                     </div>
-                </a>
-
-                <a href="{{ route('profile.edit') }}"
-                    class="neomorph-well flex items-center gap-3.5 p-4 rounded-xl group transition">
-                    <span class="w-10 h-10 rounded-xl clay-badge text-lg flex items-center justify-center transition group-hover:scale-110">👤</span>
-                    <div class="min-w-0">
-                        <p class="font-bold text-sm text-white group-hover:text-[#3fb950] transition truncate">Edit Profile</p>
-                        <p class="text-xs text-[#8a9e8a] truncate">Security &amp; credentials</p>
-                    </div>
-                </a>
-
-                <a href="{{ route('nexagtm.gtm-playbooks') }}"
-                    class="neomorph-well flex items-center gap-3.5 p-4 rounded-xl group transition">
-                    <span class="w-10 h-10 rounded-xl clay-badge text-lg flex items-center justify-center transition group-hover:scale-110">📋</span>
-                    <div class="min-w-0">
-                        <p class="font-bold text-sm text-white group-hover:text-[#3fb950] transition truncate">GTM Playbooks</p>
-                        <p class="text-xs text-[#8a9e8a] truncate">Outbound battlecards</p>
-                    </div>
-                </a>
-
-                <a href="{{ route('nexagtm.contact') }}"
-                    class="neomorph-well flex items-center gap-3.5 p-4 rounded-xl group transition">
-                    <span class="w-10 h-10 rounded-xl clay-badge text-lg flex items-center justify-center transition group-hover:scale-110">💬</span>
-                    <div class="min-w-0">
-                        <p class="font-bold text-sm text-white group-hover:text-[#3fb950] transition truncate">Contact Agency</p>
-                        <p class="text-xs text-[#8a9e8a] truncate">Direct team support</p>
-                    </div>
-                </a>
-
+                @endif
             </div>
-        </div>
 
-        {{-- Getting Started Checklist: Clay Step Bubbles & Minimalist Layout --}}
-        <div class="neomorph-card rounded-2xl p-6 relative">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-base font-bold uppercase tracking-wider text-white">Onboarding Milestones</h3>
-                <span class="style-tag clay">Clay Milestones</span>
-            </div>
-            <ul class="space-y-3">
-                <li class="neomorph-well flex items-center gap-3 p-3 rounded-xl">
-                    <span class="clay-step-bubble active text-xs font-black flex items-center justify-center">✓</span>
-                    <span class="text-sm font-medium text-gray-200">Create your NexaGTM portal account</span>
-                </li>
-                <li class="neomorph-well flex items-center gap-3 p-3 rounded-xl">
-                    <span class="clay-step-bubble {{ Auth::user()->email_verified_at ? 'active' : '' }} text-xs font-black flex items-center justify-center">
-                        {{ Auth::user()->email_verified_at ? '✓' : '2' }}
-                    </span>
-                    <span class="text-sm font-medium {{ Auth::user()->email_verified_at ? 'text-gray-200' : 'text-[#8a9e8a]' }}">Verify your work email address</span>
-                </li>
-                <li class="neomorph-well flex items-center gap-3 p-3 rounded-xl">
-                    <span class="clay-step-bubble {{ $recentBookings->count() > 0 ? 'active' : '' }} text-xs font-black flex items-center justify-center">
-                        {{ $recentBookings->count() > 0 ? '✓' : '3' }}
-                    </span>
-                    <span class="text-sm font-medium {{ $recentBookings->count() > 0 ? 'text-gray-200' : 'text-[#8a9e8a]' }}">Book your 30-minute introductory strategy session</span>
-                </li>
-                <li class="neomorph-well flex items-center gap-3 p-3 rounded-xl">
-                    <span class="clay-step-bubble text-xs font-bold flex items-center justify-center opacity-60">4</span>
-                    <span class="text-sm font-medium text-[#8a9e8a]">Deploy your verified lead pipeline &amp; cold email infrastructure</span>
-                </li>
-            </ul>
         </div>
 
     </div>
