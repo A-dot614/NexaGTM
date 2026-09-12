@@ -24,11 +24,25 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $request->authenticate(); // validates credentials
 
-        $request->session()->regenerate();
+        // Get the authenticated user (not yet session-logged-in)
+        $user = \App\Models\User::where('email', $request->email)->first();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Store user ID in session for 2FA step
+        $request->session()->put('auth.2fa.user_id', $user->id);
+        Auth::guard('web')->logout(); // log them back out until OTP verified
+
+        // Send OTP
+        $otp = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+        $user->update([
+            'otp_code'       => bcrypt($otp),
+            'otp_expires_at' => \Carbon\Carbon::now()->addMinutes(10),
+        ]);
+        \Illuminate\Support\Facades\Mail::to($user->email)
+            ->send(new \App\Mail\OtpMail($otp, $user->name));
+
+        return redirect()->route('two-factor.show');
     }
 
     /**

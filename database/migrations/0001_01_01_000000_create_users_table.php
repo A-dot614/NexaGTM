@@ -15,8 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('company')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('otp_code')->nullable();
+            $table->timestamp('otp_expires_at')->nullable();
+            $table->boolean('two_factor_enabled')->default(false);
+            $table->text('two_factor_secret')->nullable();
+            $table->text('two_factor_recovery_codes')->nullable();
+            $table->timestamp('two_factor_confirmed_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

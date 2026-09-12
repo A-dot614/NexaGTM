@@ -1,452 +1,641 @@
 <x-layout.mainlayout>
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 animate-fade-in-up">
-    <div class="text-sm font-semibold text-brand tracking-widest uppercase mb-4">Performance-Driven GTM Agency</div>
-    
-    <h1 class="text-3xl md:text-5xl lg:text-7xl font-black leading-tight mb-4 md:mb-6">
-      We Build the Pipeline.<br>
-      <span class="text-brand">You Close the Deals.</span>
-    </h1>
-    
-    <p class="text-base md:text-lg text-gray-400 max-w-2xl mb-8 md:mb-10">
-      NexaGTM is a two-founder GTM agency specialising in outbound systems, verified lead data, and custom automation — built for recruitment agencies, SaaS companies, and B2B service firms ready to scale.
-    </p>
+    <x-slot:title>NexaGTM — Performance-Driven B2B GTM Engine & Outbound Automation</x-slot:title>
 
-     <div class="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16">
-      <a href="https://calendly.com/hammad1122/new-meeting" target="_blank" 
-        class="bg-brand hover:bg-green-900 px-6 py-3 sm:px-8 sm:py-4 rounded font-bold transition-all transform hover:scale-105 w-full sm:w-auto text-center">
-        Book a Free Strategy Call
-      </a>
-      <a href="{{ route('nexagtm.price') }}" 
-        class="border border-brand text-brand hover:bg-brand hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded font-bold transition-all w-full sm:w-auto text-center">
-         View Pricing 
-      </a>
-     </div>
+    <main class="relative overflow-hidden text-[#e0e1dd]">
+        <!-- Ambient decorative glows -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-[#3fb950]/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+        <div class="absolute top-[35%] -left-20 w-[450px] h-[450px] bg-[#3fb950]/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
 
-    
-  </section>
-
-<hr class="border-slate-800 max-w-6xl mx-auto">
-
-<section id="services" class="py-20 px-6 max-w-7xl mx-auto">
-  <div class="text-center mb-16">
-    <div class="text-brand font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
-    <h2 class="text-4xl md:text-5xl font-black mb-4">NexaGTM <span class="text-brand">Services</span></h2>
-    <p class="text-gray-400 text-lg">Five focused services covering every stage of your outbound motion.</p>
-  </div>
-
-<!-- Inside your existing grid, replace the header section of each card with this: -->
-
-<div class="flex justify-between items-start mb-6">
-
-    <a href="{{ route('nexagtm.about') }}" class="text-[10px] font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950] px-3 py-1 rounded-full hover:bg-[#3fb950]">
-        View
-    </a>
-</div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 transition hover:border-brand group">
-      <div class="text-brand text-2xl font-black mb-4">01</div>
-      <div class="text-3xl mb-4">⚙️</div>
-      <h3 class="text-xl font-bold mb-3">GTM Strategy & Systems</h3>
-      <p class="text-gray-400 text-sm mb-6">We map your ICP, define outbound channels, and build a full GTM system from scratch.</p>
-      <ul class="text-gray-300 text-sm space-y-2 mb-6">
-        <li>• ICP definition & TAM mapping</li>
-        <li>• Signal-based targeting strategy</li>
-        <li>• Email & LinkedIn infrastructure</li>
-      </ul>
-    </div>
-
-    <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 transition hover:border-brand">
-      <div class="text-brand text-2xl font-black mb-4">02</div>
-      <div class="text-3xl mb-4">🚀</div>
-      <h3 class="text-xl font-bold mb-3">Multichannel Outreach</h3>
-      <p class="text-gray-400 text-sm mb-6">Full-service outbound across email, LinkedIn, and cold calling with AI personalisation.</p>
-      <ul class="text-gray-300 text-sm space-y-2 mb-6">
-        <li>• Cold email + LinkedIn + Outreach</li>
-        <li>• Signal-based triggers & intent data</li>
-        <li>• AI-powered copy personalisation at scale</li>
-        <li>• Weekly strategy calls & performance report</li>
-      </ul>
-    </div>
-
-    <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 transition hover:border-brand">
-      <div class="text-brand text-2xl font-black mb-4">03</div>
-      <div class="text-3xl mb-4">🔧</div>
-      <h3 class="text-xl font-bold mb-3">Custom Builds</h3>
-      <p class="text-gray-400 text-sm mb-6">Clay workflows, scrapers, enrichment pipelines — we scope it, build it, and hand it over.</p>
-      <ul class="text-gray-300 text-sm space-y-2 mb-6">
-        <li>• Clay table & waterfall enrichment</li>
-        <li>• AI-powered personalisation agents</li>
-        <li>• CRM & inbox integrations</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="mt-20 overflow-x-auto bg-[#1c1c1c] rounded-2xl border border-gray-800 p-8">
-    <table class="w-full text-left border-collapse">
-      <thead>
-        <tr class="text-gray-500 border-b border-gray-800">
-          <th class="py-4">Cost Category</th>
-          <th class="py-4">Old Way (In-House)</th>
-          <th class="py-4 text-brand">With NexaGTM</th>
-        </tr>
-      </thead>
-      <tbody class="text-sm">
-        <tr class="border-b border-gray-800">
-          <td class="py-4 font-medium">SDR Team (2 reps)</td>
-          <td class="py-4 text-red-400">$200K+/yr</td>
-          <td class="py-4 text-green-400">$0</td>
-        </tr>
-        <tr>
-          <td class="py-4 font-medium">Ramp time to first meeting</td>
-          <td class="py-4 text-red-400">3–6 months</td>
-          <td class="py-4 text-green-400">21 days</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<hr class="border-slate-800 max-w-6xl mx-auto">
-
-<!-- CASE STUDIES SECTION -->
-<section id="case-studies" class="py-20 px-6 max-w-7xl mx-auto">
-  <div class="text-center mb-16">
-    <div class="text-brand font-bold tracking-widest uppercase text-sm mb-2">Real Results</div>
-    <h2 class="text-4xl md:text-5xl font-black mb-4">NexaGTM <span class="text-brand">Playbooks</span></h2>
-    <p class="text-gray-400 text-lg">Results from real engagements. Every number is from actual campaigns we ran.</p>
-  </div>
-
-
-  <!-- Inside your existing grid, replace the header section of each card with this: -->
-
-<div class="flex justify-between items-start mb-6">
- 
-    <a href="{{ route('nexagtm.gtm-playbooks') }}" class="text-[10px] font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950] px-3 py-1 rounded-full hover:bg-[#3fb950]">
-        View
-    </a>
-</div>
-
-
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    
-    <!-- Case Study 1: PaveTalent -->
-    <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 hover:border-brand transition-all">
-      <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-bold uppercase text-gray-500 bg-[#1c1c1c] px-3 py-1 rounded">Recruitment Agency</span>
-        <span class="text-xs text-brand font-semibold">3 Months</span>
-      </div>
-      <h3 class="text-2xl font-bold mb-2">PaveTalent</h3>
-      <p class="text-gray-400 text-sm mb-6">Built a full Talent Prospecting Workflow — scraping daily job postings, triggering Clay enrichment, and AI scoring.</p>
-      
-      <div class="flex flex-wrap gap-2 mb-8">
-        <span class="text-xs bg-gray-800 px-2 py-1 rounded text-gray-300">Clay</span>
-        <span class="text-xs bg-blue-900/30 px-2 py-1 rounded text-blue-400">LinkedIn Scraping</span>
-        <span class="text-xs bg-purple-900/30 px-2 py-1 rounded text-purple-400">AI Scoring</span>
-      </div>
-
-      <div class="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6">
-        <div><div class="text-lg font-black">10K+</div><div class="text-[10px] uppercase text-gray-500">Jobs Scraped</div></div>
-        <div><div class="text-lg font-black">2,000</div><div class="text-[10px] uppercase text-gray-500">Qualified Leads</div></div>
-        <div><div class="text-lg font-black">1 mo</div><div class="text-[10px] uppercase text-gray-500">Build Time</div></div>
-      </div>
-    </div>
-
-    <!-- Case Study 2: Impact11 -->
-    <div class="bg-[#252525] p-8 rounded-2xl border border-gray-800 hover:border-brand transition-all">
-      <div class="flex justify-between items-start mb-4">
-        <span class="text-xs font-bold uppercase text-gray-500 bg-[#1c1c1c] px-3 py-1 rounded">Marketing Agency</span>
-        <span class="text-xs text-brand font-semibold">Ongoing</span>
-      </div>
-      <h3 class="text-2xl font-bold mb-2">Impact11 — Nimo Shkedy</h3>
-      <p class="text-gray-400 text-sm mb-6">Helped nail down a qualified ICP and built Clay-powered lead workflows that streamlined customer acquisition.</p>
-      
-      <div class="flex flex-wrap gap-2 mb-8">
-        <span class="text-xs bg-gray-800 px-2 py-1 rounded text-gray-300">Clay</span>
-        <span class="text-xs bg-blue-900/30 px-2 py-1 rounded text-blue-400">ICP Definition</span>
-        <span class="text-xs bg-purple-900/30 px-2 py-1 rounded text-purple-400">Lead Workflows</span>
-      </div>
-
-      <div class="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6">
-        <div><div class="text-lg font-black">ICP ✓</div><div class="text-[10px] uppercase text-gray-500">Qualified</div></div>
-        <div><div class="text-lg font-black">Expert</div><div class="text-[10px] uppercase text-gray-500">Clay Build</div></div>
-        <div><div class="text-lg font-black">5/5</div><div class="text-[10px] uppercase text-gray-500">Client Rating</div></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr class="border-slate-800 max-w-6xl mx-auto">
-
-<!-- TESTIMONIALS SECTION -->
-
-<section id="testimonials" class="py-20 px-6 max-w-7xl mx-auto overflow-hidden">
-  <div class="text-center mb-16">
-    <div class="text-[#3fb950] font-bold tracking-widest uppercase text-sm mb-2">Social Proof</div>
-    <h2 class="text-4xl md:text-5xl font-black mb-4 text-white">NexaGTM <span class="text-[#3fb950]">Testimonials</span></h2>
-    <p class="text-gray-400 text-lg">What clients say about working with Aman and Hammad.</p>
-  </div>
-
-  <!-- Infinite Scroll Container -->
-  <div class="relative flex overflow-x-hidden">
-    <div class="animate-marquee whitespace-nowrap flex gap-8">
-      <!-- Group of Testimonials (Repeated twice for seamless loop) -->
-      @for($i = 0; $i < 2; $i++)
-        <div class="flex gap-8">
-          <!-- Testimonial 1 -->
-          <div class="w-[350px] bg-[#0d1117] p-8 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-[#3fb950]/50 transition-all duration-300">
-            <div class="text-[#3fb950] text-4xl mb-4">"</div>
-            <p class="text-gray-300 mb-8 italic whitespace-normal">"Aman is an absolute hacker when it comes to Clay.com. His expertise is next level... Highly recommend him!"</p>
-            <div class="flex items-center gap-4">
-              <img src="{{ asset('pic/Nimo Shkedy.jpeg') }}" alt="Nimo Shkedy" class="w-12 h-12 rounded-full object-cover border border-[#3fb950]/30">
-              <div>
-                <div class="font-bold text-white">Nimo Shkedy</div>
-                <div class="text-xs text-gray-500">Founder | Impact11</div>
-                <div class="text-[10px] text-[#3fb950] font-bold uppercase tracking-wider">✓ Verified</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="w-[350px] bg-[#0d1117] p-8 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-[#3fb950]/50 transition-all duration-300">
-            <div class="text-[#3fb950] text-4xl mb-4">"</div>
-            <p class="text-gray-300 mb-8 italic whitespace-normal">"Very knowledgeable and a tremendous help with Clay. Fast, reliable, and trustworthy. Highly recommend!"</p>
-            <div class="flex items-center gap-4">
-              <img src="{{ asset('pic/Tony S.jpeg') }}" alt="Tony S." class="w-12 h-12 rounded-full object-cover border border-[#3fb950]/30">
-              <div>
-                <div class="font-bold text-white">Tony S.</div>
-                <div class="text-xs text-gray-500">President | PropertyOnion</div>
-                <div class="text-[10px] text-[#3fb950] font-bold uppercase tracking-wider">✓ Verified</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="w-[350px] bg-[#0d1117] p-8 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-[#3fb950]/50 transition-all duration-300">
-            <div class="text-[#3fb950] text-4xl mb-4">"</div>
-            <p class="text-gray-300 mb-8 italic whitespace-normal">"I hired Muhammad and his team to help generate leads for my cold email. They elevated my entire approach. Highly recommend!"</p>
-            <div class="flex items-center gap-4">
-              <img src="{{ asset('pic/JayH.jpeg') }}" alt="Jay H." class="w-12 h-12 rounded-full object-cover border border-[#3fb950]/30">
-              <div>
-                <div class="font-bold text-white">Jay H.</div>
-                <div class="text-xs text-gray-500">Owner | JZ Creates</div>
-                <div class="text-[10px] text-[#3fb950] font-bold uppercase tracking-wider">✓ Verified</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 4 -->
-          <div class="w-[350px] bg-[#0d1117] p-8 rounded-2xl border border-gray-800 flex flex-col justify-between hover:border-[#3fb950]/50 transition-all duration-300">
-            <div class="text-[#3fb950] text-4xl mb-4">"</div>
-            <p class="text-gray-300 mb-8 italic whitespace-normal">"These guys are genius, They literally helped us book 30 sales meetings per month with their custom recruiting workflow and outbound engine."</p>
-            <div class="flex items-center gap-4">  
-              <!-- Image added here -->
-                  <img src="{{ asset('pic/Jeff Brown.jpeg') }}" alt="Jeff Brown" class="w-12 h-12 rounded-full object-cover border border-[#3fb950]/30">
-    
-                  <div>
-                         <div class="font-bold text-white">Jeff Brown </div>
-                        <div class="text-xs text-gray-500">Founder | Pave Talent</div>
-                        <div class="text-[10px] text-[#3fb950] font-bold uppercase tracking-wider">✓ Verified</div>
-                 </div>
-            </div>
-          </div> 
-        </div>
-      @endfor
-    </div>
-  </div>
-</section>
-
-<hr class="border-slate-800 max-w-6xl mx-auto">
-   
-<div class="grain">
-
-
-
-
-  <!-- SECTION HEADER -->
-  <div class="mb-14">
-    <br class="hidden sm:block">
-    <br class="hidden sm:block">
-    <br class="hidden sm:block">
-  <div class="text-center mb-16">
-    <div class="text-brand font-bold tracking-widest uppercase text-sm mb-2">Infrastructure</div>
-    <h2 class="text-4xl md:text-5xl font-black mb-4">NexaGTM <span class="text-brand">The Stack</span></h2>
-    <p class="text-gray-400 text-lg">We test every week. We use what works, drop what doesn't.</p>
-  </div>
-  
-  <div class="bg-[#0f1115] p-8 min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-5xl bg-[#1a1d24] rounded-2xl p-8 border border-white/5 shadow-2xl">
-
-      @php
-        // Each item is now [name, icon_html] instead of just a string.
-        // icon_html is either an <img> with the tool's base64 logo, or an inline <svg> fallback.
-        $icon = fn($b64) => '<img src="data:image/png;base64,' . $b64 . '" style="width:16px;height:16px;object-fit:contain;border-radius:3px;flex-shrink:0">';
-
-        $svgWorkflows = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="#7d8590" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="#7d8590" stroke-width="2"/></svg>';
-
-        $svgPipeline = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="6" r="2" stroke="#7d8590" stroke-width="2"/><circle cx="19" cy="6" r="2" stroke="#7d8590" stroke-width="2"/><circle cx="12" cy="18" r="2" stroke="#7d8590" stroke-width="2"/><path d="M7 6h10M5 8v8a1 1 0 0 0 1 1h4M19 8v8a1 1 0 0 1-1 1h-4" stroke="#7d8590" stroke-width="2" stroke-linecap="round"/></svg>';
-
-        $svgAgents = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="8" width="18" height="13" rx="2" stroke="#7d8590" stroke-width="2"/><path d="M12 8V5M9 5h6" stroke="#7d8590" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="14" r="1.5" fill="#7d8590"/><circle cx="15" cy="14" r="1.5" fill="#7d8590"/><path d="M9 18h6" stroke="#7d8590" stroke-width="2" stroke-linecap="round"/></svg>';
-
-        $svgScrapers = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#7d8590" stroke-width="2"/><path d="M3 12h18M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9" stroke="#7d8590" stroke-width="1.5"/><path d="M5.6 7h12.8M5.6 17h12.8" stroke="#7d8590" stroke-width="1.5"/></svg>';
-
-        $stackRows = [
-          [
-            'icon' => '👑',
-            'label' => 'ORCHESTRATION',
-            'items' => [
-              ['name' => 'Clay', 'logo' => $icon('CLAY_B64')],
-              ['name' => 'n8n', 'logo' => $icon('N8N_B64')],
-              ['name' => 'Custom Workflows', 'logo' => $svgWorkflows],
-              ['name' => 'Pipeline Logic', 'logo' => $svgPipeline],
-            ],
-          ],
-          [
-            'icon' => '📁',
-            'label' => 'LEAD GEN & DATA',
-            'items' => [
-              ['name' => 'Clay', 'logo' => $icon('CLAY_B64')],
-              ['name' => 'Apollo', 'logo' => $icon('APOLLO_B64')],
-              ['name' => 'Sales Nav', 'logo' => $icon('SALESNAV_B64')],
-              ['name' => 'Apify', 'logo' => $icon('APIFY_B64')],
-              ['name' => 'LeadMagic', 'logo' => $icon('LEADMAGIC_B64')],
-              ['name' => 'Prospeo', 'logo' => $icon('PROSPEO_B64')],
-              ['name' => 'Findymail', 'logo' => $icon('FINDYMAIL_B64')],
-              ['name' => 'MillionVerifier', 'logo' => $icon('MILLIONVERIFIER_B64')],
-              ['name' => 'ZoomInfo', 'logo' => $icon('ZOOMINFO_B64')],
-              ['name' => 'Crunchbase', 'logo' => $icon('CRUNCHBASE_B64')],
-            ],
-          ],
-          [
-            'icon' => '🤖',
-            'label' => 'AI & AUTOMATION',
-            'items' => [
-              ['name' => 'OpenAI', 'logo' => $icon('OPENAI_B64')],
-              ['name' => 'Anthropic', 'logo' => $icon('ANTHROPIC_B64')],
-              ['name' => 'OpenRouter', 'logo' => $icon('OPENROUTER_B64')],
-              ['name' => 'Custom Agents', 'logo' => $svgAgents],
-            ],
-          ],
-          [
-            'icon' => '✉️',
-            'label' => 'EMAIL INFRA',
-            'items' => [
-              ['name' => 'Instantly', 'logo' => $icon('INSTANTLY_B64')],
-              ['name' => 'Smartlead', 'logo' => $icon('SMARTLEAD_B64')],
-              ['name' => 'HeyReach', 'logo' => $icon('HEYREACH_B64')],
-              ['name' => 'Expandi', 'logo' => $icon('EXPANDI_B64')],
-              ['name' => 'Email Bison', 'logo' => $icon('EMAILBISON_B64')],
-              ['name' => 'Zapmail', 'logo' => $icon('ZAPMAIL_B64')],
-              ['name' => 'Outboundry', 'logo' => $icon('OUTBOUNDRY_B64')],
-            ],
-          ],
-          [
-            'icon' => '📡',
-            'label' => 'CONTENT & SIGNALS',
-            'items' => [
-              ['name' => 'Trigify', 'logo' => $icon('TRIGIFY_B64')],
-              ['name' => 'Typefully', 'logo' => $icon('TYPEFULLY_B64')],
-              ['name' => 'BuiltWith', 'logo' => $icon('BUILTWITH_B64')],
-              ['name' => 'Engagement Scrapers', 'logo' => $svgScrapers],
-            ],
-          ],
-        ];
-      @endphp
-
-      <div class="flex flex-col gap-8">
-        @foreach($stackRows as $row)
-          <div class="grid grid-cols-1 md:grid-cols-[200px,1fr] gap-6 items-start border-b border-white/5 pb-6 last:border-0 last:pb-0">
-            <div class="flex items-center gap-3 text-gray-400 font-bold text-xs tracking-widest uppercase">
-              <span>{{ $row['icon'] }}</span>
-              {{ $row['label'] }}
+        {{-- ── HERO SECTION ── --}}
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-16 sm:pb-24 text-center animate-fade-in-up relative">
+            <!-- Live Availability Pill (Claymorphism + Skeuomorphic LED) -->
+            <div class="clay-badge clay-pill inline-flex items-center gap-2.5 px-5 py-2 mb-6 text-xs font-bold tracking-wide relative cursor-pointer">
+                <span class="style-tag style-tag-clay">Claymorphism</span>
+                <span class="skeuo-led"></span>
+                <span>Now Booking for Q1/Q2 · 2 Outbound Slots Remaining</span>
             </div>
 
-            <div class="flex flex-wrap gap-2">
-              @foreach($row['items'] as $item)
-                <span class="px-3 py-1.5 bg-[#252a33] text-gray-200 rounded-lg text-sm font-medium border border-white/5 hover:bg-[#2e343f] transition-colors cursor-default inline-flex items-center gap-2">
-                  {!! $item['logo'] !!}
-                  {{ $item['name'] }}
-                </span>
-              @endforeach
+            <!-- Main Heading (Minimalist Typographic Hierarchy) -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+                We Build the Pipeline.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3fb950] via-[#56d364] to-[#2ea043]">You Close the Deals.</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-base sm:text-xl text-[#8b949e] max-w-3xl mx-auto mb-10 leading-relaxed">
+                NexaGTM is a practitioner-led GTM agency specializing in high-conversion outbound systems, waterfall-verified lead pipelines, and custom Clay automation — built specifically for B2B SaaS, recruitment agencies, and high-ticket service firms.
+            </p>
+
+            <!-- Dual Action CTAs (Skeuomorphism + Neomorphism) -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-5 mb-12">
+                <a href="{{ route('nexagtm.book-call') }}" 
+                   class="skeuo-button w-full sm:w-auto px-9 py-4 text-white font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 relative">
+                    <span class="style-tag style-tag-skeuo">Skeuomorphism</span>
+                    <i class="fa-solid fa-calendar-days text-sm"></i>
+                    <span>Book a Free Strategy Call</span>
+                </a>
+                <a href="{{ route('nexagtm.price') }}" 
+                   class="neomorph-button w-full sm:w-auto px-8 py-4 text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 relative">
+                    <span class="style-tag style-tag-neomorph">Neomorphism</span>
+                    <span>Explore Pricing & Models</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
             </div>
-          </div>
-        @endforeach
-      </div>
 
-    </div>
-  </div>
+            <!-- Social Proof Bar (Neo-Brutalism Stamps + Analog Star Rating) -->
+            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 pt-8 border-t border-[#30363d]/60 text-xs text-[#8b949e] relative">
+                <span class="style-tag style-tag-brutal">Neo-Brutalism</span>
+                <div class="brutal-badge flex items-center gap-2">
+                    <div class="flex text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-white font-bold">5.0 RATING</span>
+                    <span class="text-slate-400 font-mono text-[10px]">(UPWORK & LINKEDIN)</span>
+                </div>
+                <div class="brutal-badge flex items-center gap-2">
+                    <i class="fa-solid fa-check-double text-[#3fb950]"></i>
+                    <span class="text-white font-bold">10,000+</span>
+                    <span>VERIFIED LEADS</span>
+                </div>
+                <div class="brutal-badge flex items-center gap-2">
+                    <span class="skeuo-led"></span>
+                    <span class="text-white font-bold">99.2%</span>
+                    <span>INBOX DELIVERABILITY</span>
+                </div>
+            </div>
+        </section>
 
+        <hr class="minimal-divider max-w-7xl mx-auto my-6">
 
+        {{-- ── SERVICES SECTION ── --}}
+        <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="max-w-2xl">
+                    <div class="text-xs font-bold tracking-[0.2em] uppercase text-[#3fb950] mb-2">Core Solutions</div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                        Engineered for Every Stage of Outbound
+                    </h2>
+                    <p class="text-base text-[#8b949e] mt-3">
+                        Three specialized service tracks designed to eliminate pipeline dry spells and build enduring outbound assets.
+                    </p>
+                </div>
+                <a href="{{ route('nexagtm.about') }}" 
+                   class="clay-pill inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors px-5 py-2.5 self-start md:self-end">
+                    <span>Learn About Our Process</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1: Spatial UI 3D Card -->
+                <div class="spatial-card spatial-spotlight bg-[#161b22] border border-[#30363d] rounded-3xl p-8 hover:border-[#3fb950]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group relative">
+                    <span class="style-tag style-tag-spatial">Spatial UI 3D</span>
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="clay-step-bubble">01</span>
+                            <div class="w-12 h-12 rounded-2xl bg-[#3fb950]/10 text-[#3fb950] flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">GTM Strategy & Infrastructure</h3>
+                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
+                            We map your exact ICP, configure secondary domains with flawless SPF/DKIM/DMARC protocols, and build your sequencing architecture from zero.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>Granular ICP & TAM Total Addressable Market</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>Multi-domain warmup & DNS health protocols</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>High-intent signal capture workflows</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{{ route('nexagtm.book-call') }}" class="text-xs font-bold text-[#3fb950] hover:text-white flex items-center gap-1.5 transition-colors pt-4 border-t border-[#30363d]/80">
+                        <span>Book Strategy Call</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
 
-  
-  </div>
- </div>
-</div>
+                <!-- Service 2: Liquid Glass Card (Featured) -->
+                <div class="liquid-glass-card p-8 flex flex-col justify-between group relative">
+                    <span class="style-tag style-tag-liquid">Liquid Glass</span>
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="clay-step-bubble">02</span>
+                            <div class="w-12 h-12 rounded-2xl bg-[#3fb950]/20 text-[#56d364] flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Multichannel Outreach Execution</h3>
+                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
+                            Turnkey outbound across cold email, LinkedIn touches, and appointment setting with hyper-personalized messaging trained on actual buying triggers.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>Cold Email + LinkedIn omnichannel touches</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>AI copy personalization based on hiring/funding</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>Weekly strategy calls & KPI dashboard updates</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{{ route('nexagtm.price') }}" class="text-xs font-bold text-[#3fb950] hover:text-white flex items-center gap-1.5 transition-colors pt-4 border-t border-[#30363d]/80">
+                        <span>View Outreach Retainers</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
 
+                <!-- Service 3: Spatial UI 3D Card -->
+                <div class="spatial-card spatial-spotlight bg-[#161b22] border border-[#30363d] rounded-3xl p-8 hover:border-[#3fb950]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group relative">
+                    <span class="style-tag style-tag-spatial">Spatial UI 3D</span>
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="clay-step-bubble">03</span>
+                            <div class="w-12 h-12 rounded-2xl bg-[#3fb950]/10 text-[#3fb950] flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Custom Clay & Scraper Builds</h3>
+                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
+                            Bespoke Clay tables, waterfall cascades, Apify scrapers, and CRM webhook pipelines. We scope it, build it, document it, and hand it over.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>Multi-provider waterfall enrichment cascades</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>LinkedIn, job board & custom site web scrapers</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-[#3fb950] text-[10px]"></i>
+                                <span>Full video walkthrough & documentation included</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{{ route('nexagtm.contact') }}" class="text-xs font-bold text-[#3fb950] hover:text-white flex items-center gap-1.5 transition-colors pt-4 border-t border-[#30363d]/80">
+                        <span>Scope a Custom Build ($30/hr)</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
 
+            <!-- Modern 3-Way Comparison Matrix (Neomorphism Chassis + Liquid Glass Spotlight) -->
+            <div class="mt-16 neomorph-card p-6 sm:p-10 shadow-2xl overflow-x-auto relative">
+                <span class="style-tag style-tag-neomorph">Neomorphic Well</span>
+                <div class="mb-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#3fb950]">The Economic Advantage</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Why High-Growth Teams Choose NexaGTM</h3>
+                </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    <!-- Column 1: In-House SDR (Minimalist) -->
+                    <div class="minimal-clean bg-[#0d1117] p-6 flex flex-col justify-between relative">
+                        <span class="style-tag style-tag-minimal">Minimalist</span>
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2">Old Way 01</div>
+                            <h4 class="text-lg font-bold text-white mb-4">In-House SDR Team</h4>
+                            <ul class="space-y-3 text-xs text-slate-400">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>$180K–$220K/yr:</strong> Salaries, OTE, benefits & taxes</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>3–6 months:</strong> Hiring, onboarding & ramp time</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>High turnover:</strong> SDRs churn every 14 months on average</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>$1,500+/mo:</strong> Software licenses & domain overhead</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <!-- Column 2: Traditional Agency (Minimalist) -->
+                    <div class="minimal-clean bg-[#0d1117] p-6 flex flex-col justify-between relative">
+                        <span class="style-tag style-tag-minimal">Minimalist</span>
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Old Way 02</div>
+                            <h4 class="text-lg font-bold text-white mb-4">Traditional Lead Gen Agency</h4>
+                            <ul class="space-y-3 text-xs text-slate-400">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-amber-500 mt-0.5"></i>
+                                    <span><strong>$4K–$8K/mo retainers:</strong> High upfront cost with no guarantees</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-amber-500 mt-0.5"></i>
+                                    <span><strong>Generic spray & pray:</strong> Spamming 20,000 cold contacts</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-amber-500 mt-0.5"></i>
+                                    <span><strong>Data hostage:</strong> You don't own domains, lists, or sequences</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-amber-500 mt-0.5"></i>
+                                    <span><strong>Junior account managers:</strong> Disconnected from technical reality</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-<hr class="border-slate-800 max-w-6xl mx-auto">
+                    <!-- Column 3: NexaGTM Engine (Liquid Glass Spotlight + Brutal Stamp) -->
+                    <div class="liquid-glass-card p-6 flex flex-col justify-between relative">
+                        <span class="style-tag style-tag-liquid">Liquid Glass</span>
+                        <span class="absolute -top-3 right-4 brutal-badge text-[10px] font-black uppercase tracking-widest px-3 py-0.5">
+                            <span class="skeuo-led mr-1"></span> The Modern Standard
+                        </span>
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-[#3fb950] mb-2">NexaGTM Engine</div>
+                            <h4 class="text-lg font-bold text-white mb-4">Signal-Led Architecture</h4>
+                            <ul class="space-y-3 text-xs text-slate-200">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#3fb950] mt-0.5"></i>
+                                    <span><strong>$750/mo or Pay-Per-Result:</strong> Fraction of full-time cost</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#3fb950] mt-0.5"></i>
+                                    <span><strong>Live in 14 days:</strong> Warmups & waterfall builds launch rapidly</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#3fb950] mt-0.5"></i>
+                                    <span><strong>100% Client Asset Ownership:</strong> Domains & Clay tables are yours</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#3fb950] mt-0.5"></i>
+                                    <span><strong>Founder-led execution:</strong> You work directly with technical architects</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section
-    class="relative min-h-screen flex flex-col items-center justify-center px-5 py-20 overflow-hidden"
-    style="background: radial-gradient(ellipse at 60% 40%, #004b23 0%, #0a0908 70%);">
+        <hr class="border-[#30363d]/80 max-w-7xl mx-auto">
 
-    <!-- subtle secondary glow -->
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="background: radial-gradient(ellipse at 30% 70%, rgba(0,75,35,0.4) 0%, transparent 60%);"
-    ></div>
+        {{-- ── PLAYBOOKS & CASE STUDIES ── --}}
+        <section id="case-studies" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="max-w-2xl">
+                    <div class="text-xs font-bold tracking-[0.2em] uppercase text-[#3fb950] mb-2">Proven Track Record</div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                        Real Campaigns. Real Pipeline.
+                    </h2>
+                    <p class="text-base text-[#8b949e] mt-3">
+                        Actual results achieved for our clients through custom Clay workflows and automated multichannel execution.
+                    </p>
+                </div>
+                <a href="{{ route('nexagtm.gtm-playbooks') }}" 
+                   class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950]/40 hover:border-[#3fb950] px-4 py-2.5 rounded-full hover:bg-[#3fb950]/10 self-start md:self-end">
+                    <span>View All Playbooks</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
 
-    <!-- Heading -->
-    <h1 class="relative z-10 text-4xl md:text-6xl font-extrabold text-white text-center leading-tight max-w-2xl mb-5">
-      Ready to bring your idea to life?
-    </h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case Study 1: PaveTalent (Spatial UI 3D) -->
+                <div class="spatial-card spatial-spotlight bg-[#161b22] border border-[#30363d] hover:border-[#3fb950]/60 rounded-3xl p-8 sm:p-10 transition-all duration-300 shadow-xl flex flex-col justify-between group relative">
+                    <span class="style-tag style-tag-spatial">Spatial UI 3D</span>
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="clay-badge clay-pill text-xs font-bold uppercase tracking-wider">
+                                Recruitment & Staffing
+                            </span>
+                            <span class="text-xs text-[#8b949e] font-mono">3 Month Sprint</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">PaveTalent — Custom Talent Prospecting Engine</h3>
+                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
+                            Built an automated daily scraping pipeline that monitors target tech job postings, triggers Clay waterfall verification, and uses AI scoring to deliver 30 qualified candidate and client meetings every month.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="brutal-badge">Clay Waterfall</span>
+                            <span class="brutal-badge">LinkedIn Scraper</span>
+                            <span class="brutal-badge">Smartlead Sequences</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-[#30363d]/80 text-center">
+                        <div class="neomorph-well p-3 rounded-2xl">
+                            <div class="text-2xl font-black text-white">10K+</div>
+                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Jobs Scraped</div>
+                        </div>
+                        <div class="neomorph-well p-3 rounded-2xl">
+                            <div class="text-2xl font-black text-[#3fb950]">30+</div>
+                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Meetings / Mo</div>
+                        </div>
+                        <div class="neomorph-well p-3 rounded-2xl">
+                            <div class="text-2xl font-black text-white">1 Mo</div>
+                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Setup Time</div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Subtext -->
-    <p class="relative z-10 text-base text-white/60 text-center max-w-md leading-relaxed mb-10">
-      Let's discuss your project. I'll help you build something that makes a real impact.
-    </p>
+                <!-- Case Study 2: Impact11 (Spatial UI 3D) -->
+                <div class="spatial-card spatial-spotlight bg-[#161b22] border border-[#30363d] hover:border-[#3fb950]/60 rounded-3xl p-8 sm:p-10 transition-all duration-300 shadow-xl flex flex-col justify-between group relative">
+                    <span class="style-tag style-tag-spatial">Spatial UI 3D</span>
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="clay-badge clay-pill text-xs font-bold uppercase tracking-wider">
+                                Marketing Agency
+                            </span>
+                            <span class="text-xs text-[#8b949e] font-mono">Ongoing Partner</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Impact11 — Nimo Shkedy</h3>
+                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
+                            Refined the ideal customer profile across key verticals, engineered dynamic Clay lead enrichment waterfalls, and established an automated outbound infrastructure that streamlined high-ticket client acquisition.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="brutal-badge">Clay Architecture</span>
+                            <span class="brutal-badge">ICP Validation</span>
+                            <span class="brutal-badge">Automated Routing</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-[#30363d]/80 text-center">
+                        <div class="neomorph-well p-3 rounded-2xl">
+                            <div class="text-2xl font-black text-white">100%</div>
+                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">ICP Match</div>
+                        </div>
+                        <div class="neomorph-well p-3 rounded-2xl">
+                            <div class="text-2xl font-black text-[#3fb950]">5.0 / 5</div>
+                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Client Rating</div>
+                        </div>
+                        <div class="neomorph-well p-3 rounded-2xl">
+                            <div class="text-2xl font-black text-white">24/7</div>
+                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Autonomous</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- CTA Buttons -->
-    <div class="relative z-10 flex flex-wrap gap-4 justify-center">
-      
-        <a href="https://calendly.com/hammad1122/new-meeting" target="_blank"
-        class="inline-flex items-center gap-2 bg-white text-black font-semibold px-7 py-3.5 rounded-md hover:bg-green-50 transition-all duration-200 hover:-translate-y-0.5"
-      >
-        Schedule a Call 
-      </a>
-      
-        <a href="{{ route('nexagtm.contact') }}"
-        class="inline-flex items-center font-semibold px-7 py-3.5 rounded-md border border-white/50 text-white hover:border-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
-      >
-        Contact Us 
-      </a>
-    </div>
+        <hr class="minimal-divider max-w-7xl mx-auto my-6">
 
-    <!-- Divider -->
-    <div class="relative z-10 w-full max-w-xl h-px bg-white/10 my-10"></div>
+        {{-- ── TESTIMONIALS (MARQUEE) ── --}}
+        <section id="testimonials" class="py-20 max-w-7xl mx-auto overflow-hidden relative">
+            <div class="text-center mb-16 px-4">
+                <div class="text-xs font-bold tracking-[0.2em] uppercase text-[#3fb950] mb-2">Founder Endorsements</div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                    Trusted by Agency & SaaS Founders
+                </h2>
+                <p class="text-base text-[#8b949e] max-w-2xl mx-auto">
+                    Direct feedback from leaders who scaled their pipeline with Hammad and Aman.
+                </p>
+            </div>
 
+            <!-- Infinite Scroll Container -->
+            @php
+                $fallbackTestimonials = [
+                    [
+                        'client_name' => 'Nimo Shkedy',
+                        'company' => 'Impact11',
+                        'role' => 'Founder',
+                        'rating' => 5,
+                        'content' => 'Aman is an absolute hacker when it comes to Clay.com. His expertise is next level... Highly recommend him for any advanced outbound workflow.',
+                        'avatar_url' => asset('pic/Nimo Shkedy.jpeg'),
+                    ],
+                    [
+                        'client_name' => 'Tony S.',
+                        'company' => 'PropertyOnion',
+                        'role' => 'President',
+                        'rating' => 5,
+                        'content' => 'Very knowledgeable and a tremendous help with Clay tables and enrichments. Fast, reliable, and trustworthy. We will definitely work with them again!',
+                        'avatar_url' => asset('pic/Tony S.jpeg'),
+                    ],
+                    [
+                        'client_name' => 'Jay H.',
+                        'company' => 'JZ Creates',
+                        'role' => 'Owner',
+                        'rating' => 5,
+                        'content' => 'I hired Muhammad and his team to help generate leads for my cold email. They elevated my entire approach and the open rates were incredible. Highly recommend!',
+                        'avatar_url' => asset('pic/JayH.jpeg'),
+                    ],
+                    [
+                        'client_name' => 'Jeff Brown',
+                        'company' => 'PaveTalent',
+                        'role' => 'Founder',
+                        'rating' => 5,
+                        'content' => 'These guys are geniuses. They literally helped us book 30 sales meetings per month with their custom recruiting workflow and outbound engine.',
+                        'avatar_url' => asset('pic/Jeff Brown.jpeg'),
+                    ],
+                ];
 
+                $marqueeTestimonials = $testimonials->count() > 0
+                    ? $testimonials
+                    : collect($fallbackTestimonials);
+            @endphp
 
-    <!-- Footer badges -->
-    <div class="relative z-10 flex flex-wrap gap-8 justify-center mt-8">
-      <span class="flex items-center gap-2 text-xs text-white/40">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#004b23] border border-white/30 inline-block"></span>
-        Fast response time
-      </span>
-      <span class="flex items-center gap-2 text-xs text-white/40">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#004b23] border border-white/30 inline-block"></span>
-        No commitment required
-      </span>
-      <span class="flex items-center gap-2 text-xs text-white/40">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#004b23] border border-white/30 inline-block"></span>
-        100% satisfaction guarantee
-      </span>
-    </div>
+            <div class="relative flex overflow-x-hidden">
+                <div class="animate-marquee whitespace-nowrap flex gap-6">
+                    @for($i = 0; $i < 2; $i++)
+                        <div class="flex gap-6">
+                            @foreach($marqueeTestimonials as $t)
+                                @php
+                                    $tAvatar = $t->avatar ?? ($t['avatar_url'] ?? null);
+                                    $tName = is_object($t) ? $t->client_name : $t['client_name'];
+                                    $tCompany = is_object($t) ? ($t->company ?: 'Independent') : ($t['company'] ?: 'Independent');
+                                    $tRole = is_object($t) ? ($t->role ?: 'Client') : ($t['role'] ?: 'Client');
+                                    $tRating = is_object($t) ? (int) $t->rating : (int) $t['rating'];
+                                    $tContent = is_object($t) ? $t->content : $t['content'];
+                                    $avatarPath = $tAvatar ? (str_starts_with($tAvatar, 'http') ? $tAvatar : asset('storage/' . $tAvatar)) : null;
+                                @endphp
+                                <div class="w-[360px] sm:w-[400px] bg-[#161b22] p-8 rounded-3xl border border-[#30363d] flex flex-col justify-between hover:border-[#3fb950]/50 transition-all duration-300 whitespace-normal">
+                                    <div>
+                                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+                                            @for($s = 1; $s <= 5; $s++)
+                                                <i class="fa{{ $s <= $tRating ? 's' : 'r' }} fa-star"></i>
+                                            @endfor
+                                        </div>
+                                        <p class="text-sm text-slate-200 mb-6 italic leading-relaxed">
+                                            "{{ $tContent }}"
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center gap-3 pt-4 border-t border-[#30363d]/80">
+                                        @if($avatarPath)
+                                            <img src="{{ $avatarPath }}" alt="{{ $tName }}" class="w-11 h-11 rounded-full object-cover border border-[#3fb950]/40 flex-shrink-0">
+                                        @else
+                                            <div class="w-11 h-11 rounded-full bg-[#3fb950]/20 border border-[#3fb950]/40 text-[#3fb950] flex items-center justify-center font-black text-base uppercase flex-shrink-0">
+                                                {{ substr($tName, 0, 1) }}
+                                            </div>
+                                        @endif
+                                        <div>
+                                            <div class="text-sm font-bold text-white">{{ $tName }}</div>
+                                            <div class="text-xs text-[#8b949e]">{{ $tRole }} | {{ $tCompany }}</div>
+                                            <div class="text-[10px] text-[#3fb950] font-semibold">✓ Verified Client</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endfor
+                </div>
+            </div>
+        </section>
 
-  </section>    
+        <hr class="border-[#30363d]/80 max-w-7xl mx-auto">
+
+        {{-- ── THE TECH STACK (WITH CRISP VECTOR ICONS) ── --}}
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <div class="text-xs font-bold tracking-[0.2em] uppercase text-[#3fb950] mb-2">Modern Tooling</div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                    The Modern GTM Stack
+                </h2>
+                <p class="text-base text-[#8b949e] max-w-2xl mx-auto">
+                    We test every tool weekly. We use what drives real pipeline and discard the rest.
+                </p>
+            </div>
+
+            <div class="bg-[#161b22] border border-[#30363d] rounded-3xl p-6 sm:p-10 shadow-2xl">
+                @php
+                    $stackCategories = [
+                        [
+                            'icon' => 'fa-solid fa-sitemap text-[#3fb950]',
+                            'title' => 'ORCHESTRATION & LOGIC',
+                            'items' => [
+                                ['name' => 'Clay.com', 'icon' => 'fa-solid fa-cube text-emerald-400'],
+                                ['name' => 'n8n Automation', 'icon' => 'fa-solid fa-code-fork text-rose-400'],
+                                ['name' => 'Custom Webhooks', 'icon' => 'fa-solid fa-network-wired text-blue-400'],
+                                ['name' => 'Pipeline Logic', 'icon' => 'fa-solid fa-sliders text-amber-400'],
+                            ]
+                        ],
+                        [
+                            'icon' => 'fa-solid fa-database text-cyan-400',
+                            'title' => 'LEAD GENERATION & DATA WATERFALL',
+                            'items' => [
+                                ['name' => 'Apollo.io', 'icon' => 'fa-solid fa-crosshairs text-indigo-400'],
+                                ['name' => 'Sales Navigator', 'icon' => 'fa-brands fa-linkedin text-blue-500'],
+                                ['name' => 'Apify Scrapers', 'icon' => 'fa-solid fa-spider text-orange-400'],
+                                ['name' => 'Findymail', 'icon' => 'fa-solid fa-envelope-circle-check text-emerald-400'],
+                                ['name' => 'Prospeo', 'icon' => 'fa-solid fa-magnifying-glass-location text-teal-400'],
+                                ['name' => 'MillionVerifier', 'icon' => 'fa-solid fa-shield-halved text-green-400'],
+                                ['name' => 'ZoomInfo', 'icon' => 'fa-solid fa-building-user text-sky-400'],
+                                ['name' => 'Crunchbase', 'icon' => 'fa-solid fa-chart-line text-blue-400'],
+                            ]
+                        ],
+                        [
+                            'icon' => 'fa-solid fa-robot text-purple-400',
+                            'title' => 'AI INTELLIGENCE & REASONING',
+                            'items' => [
+                                ['name' => 'OpenAI GPT-4o', 'icon' => 'fa-solid fa-brain text-emerald-400'],
+                                ['name' => 'Anthropic Claude', 'icon' => 'fa-solid fa-sparkles text-amber-400'],
+                                ['name' => 'OpenRouter', 'icon' => 'fa-solid fa-route text-violet-400'],
+                                ['name' => 'Custom AI Agents', 'icon' => 'fa-solid fa-microchip text-pink-400'],
+                            ]
+                        ],
+                        [
+                            'icon' => 'fa-solid fa-paper-plane text-emerald-400',
+                            'title' => 'MULTI-INBOX OUTBOUND INFRASTRUCTURE',
+                            'items' => [
+                                ['name' => 'Smartlead', 'icon' => 'fa-solid fa-bolt text-indigo-400'],
+                                ['name' => 'Instantly', 'icon' => 'fa-solid fa-envelope-open-text text-blue-400'],
+                                ['name' => 'HeyReach', 'icon' => 'fa-solid fa-handshake text-teal-400'],
+                                ['name' => 'Email Bison', 'icon' => 'fa-solid fa-server text-cyan-400'],
+                                ['name' => 'Zapmail', 'icon' => 'fa-solid fa-shield-heart text-amber-400'],
+                            ]
+                        ],
+                        [
+                            'icon' => 'fa-solid fa-tower-broadcast text-amber-400',
+                            'title' => 'SIGNALS & MARKET INTELLIGENCE',
+                            'items' => [
+                                ['name' => 'Trigify', 'icon' => 'fa-solid fa-radar text-emerald-400'],
+                                ['name' => 'BuiltWith Tech', 'icon' => 'fa-solid fa-layer-group text-blue-400'],
+                                ['name' => 'Job Board Scrapers', 'icon' => 'fa-solid fa-briefcase text-orange-400'],
+                                ['name' => 'Funding Alerts', 'icon' => 'fa-solid fa-money-bill-trend-up text-green-400'],
+                            ]
+                        ],
+                    ];
+                @endphp
+
+                <div class="space-y-8">
+                    @foreach($stackCategories as $cat)
+                        <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 items-start pb-8 border-b border-[#30363d]/60 last:border-0 last:pb-0">
+                            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-300">
+                                <i class="{{ $cat['icon'] }} text-base"></i>
+                                <span>{{ $cat['title'] }}</span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2.5">
+                                @foreach($cat['items'] as $item)
+                                    <span class="px-3.5 py-2 bg-[#0d1117] hover:bg-[#21262d] text-slate-200 rounded-xl text-xs font-medium border border-[#30363d] hover:border-[#3fb950]/50 transition-colors inline-flex items-center gap-2 cursor-default">
+                                        <i class="{{ $item['icon'] }}"></i>
+                                        <span>{{ $item['name'] }}</span>
+                                    </span>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Cinematic CTA Section (Liquid Glass + Skeuomorphism) -->
+        <section class="w-full px-4 py-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="liquid-glass-card p-8 sm:p-16 text-center shadow-2xl relative overflow-hidden">
+                    <span class="style-tag style-tag-liquid">Liquid Glass</span>
+                    <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#3fb950]/15 rounded-full blur-[130px] pointer-events-none"></div>
+
+                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                        Ready to Stop Guessing with Outbound?
+                    </h3>
+                    <p class="text-[#8b949e] text-base sm:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                        Let's build a predictable, automated GTM engine tailored to your market. Zero guesswork, pure pipeline.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center gap-5">
+                        <a href="{{ route('nexagtm.book-call') }}" 
+                           class="skeuo-button px-9 py-4 text-white font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 relative">
+                            <span class="style-tag style-tag-skeuo">Skeuomorphism</span>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <span>Schedule a Free Strategy Call</span>
+                        </a>
+                        <a href="{{ route('nexagtm.contact') }}" 
+                           class="neomorph-button px-8 py-4 text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 relative">
+                            <span class="style-tag style-tag-neomorph">Neomorphism</span>
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Contact Us Directly</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer Micro Reassurance -->
+                    <div class="flex flex-wrap justify-center items-center gap-6 mt-10 pt-6 border-t border-white/10 text-xs text-[#8b949e]">
+                        <span class="flex items-center gap-1.5">
+                            <span class="skeuo-led"></span>
+                            &lt; 2-hour response time
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <span class="skeuo-led"></span>
+                            No long-term commitments
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <span class="skeuo-led"></span>
+                            100% money-back quality guarantee
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 </x-layout.mainlayout>

@@ -1,0 +1,928 @@
+/* ==========================================================================
+   NexaGTM Comprehensive Design Systems Engine
+   Paradigms Included & Unified:
+   1. Skeuomorphism
+   2. Neomorphism
+   3. Glassmorphism
+   4. Claymorphism
+   5. Minimalism
+   6. Maximalism
+   7. Brutalism (Neo-Brutalism)
+   8. Liquid Glass
+   9. Spatial UI (Apple VisionOS 3D Space)
+   + Harmonic Master Mode ("Applied Accordingly")
+   ========================================================================== */
+
+:root {
+  --brand-green: #3fb950;
+  --brand-light: #56d364;
+  --brand-dark: #2ea043;
+  --brand-glow: rgba(63, 185, 80, 0.4);
+
+  /* Default Dark Canvas */
+  --bg-main: #0d1117;
+  --bg-surface: #161b22;
+  --bg-card: #1c2128;
+  --border-subtle: #30363d;
+  --text-primary: #f0f6fc;
+  --text-muted: #8b949e;
+
+  /* Spatial 3D Defaults */
+  --perspective: 1200px;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   1. SKEUOMORPHISM (Tactile Hardware, Metallic Bevels, Realistic Diode LEDs)
+   -------------------------------------------------------------------------- */
+.skeuo-button {
+  position: relative;
+  background: linear-gradient(180deg, #4ac45c 0%, #34a345 50%, #268034 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #5fe272 !important;
+  border-top: 1px solid #a3f7b0 !important;
+  border-bottom: 2px solid #144f20 !important;
+  border-radius: 12px;
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.25) inset,
+    0 4px 0 #1b6329,
+    0 8px 18px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  cursor: pointer;
+  overflow: hidden;
+}
+.skeuo-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  pointer-events: none;
+}
+.skeuo-button:hover {
+  filter: brightness(1.06);
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.45) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.25) inset,
+    0 5px 0 #1b6329,
+    0 12px 24px rgba(63, 185, 80, 0.45) !important;
+  transform: translateY(-1px);
+}
+.skeuo-button:active {
+  transform: translateY(3px) !important;
+  box-shadow: 
+    0 1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 1px 0 #1b6329,
+    0 3px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Skeuomorphic Secondary Metallic Plate */
+.skeuo-metal-button {
+  position: relative;
+  background: linear-gradient(180deg, #2b323c 0%, #1e232a 50%, #161a20 100%) !important;
+  color: #f0f6fc !important;
+  border: 1px solid #3d4653 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-bottom: 2px solid #0d1014 !important;
+  border-radius: 12px;
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.5) inset,
+    0 3px 0 #0d1014,
+    0 6px 14px rgba(0, 0, 0, 0.5) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  transition: all 0.12s ease;
+}
+.skeuo-metal-button:hover {
+  background: linear-gradient(180deg, #353d49 0%, #242a33 50%, #1a1f26 100%) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #0d1014, 0 10px 20px rgba(0, 0, 0, 0.6) !important;
+}
+.skeuo-metal-button:active {
+  transform: translateY(2px) !important;
+  box-shadow: 0 1px 0 #0d1014, 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Realistic Analog Status LED Indicator Lamp */
+.skeuo-led {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #a8ffb2 0%, #3fb950 45%, #186026 80%, #0c3313 100%);
+  border: 1px solid #142818;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.9),
+    0 0 0 1.5px #263328,
+    0 0 8px rgba(63, 185, 80, 0.8),
+    0 0 16px rgba(63, 185, 80, 0.5);
+  animation: skeuoLedGlow 2.5s infinite alternate ease-in-out;
+}
+@keyframes skeuoLedGlow {
+  0% { box-shadow: inset 0 1px 2px rgba(255,255,255,0.7), 0 0 0 1.5px #263328, 0 0 6px rgba(63,185,80,0.6); }
+  100% { box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 0 0 1.5px #263328, 0 0 14px rgba(63,185,80,1), 0 0 22px rgba(86,211,100,0.8); }
+}
+
+/* Analog Hardware Toggle Switch */
+.skeuo-toggle-track {
+  position: relative;
+  width: 64px;
+  height: 32px;
+  background: linear-gradient(180deg, #090c10 0%, #151b22 100%);
+  border: 1px solid #2d343f;
+  border-top: 1px solid #10141a;
+  border-bottom: 1px solid #3d4554;
+  border-radius: 16px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.8), inset 0 -1px 1px rgba(255,255,255,0.08);
+  cursor: pointer;
+  padding: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.skeuo-toggle-knob {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e4e7eb 0%, #9aa2ae 45%, #666f7d 100%);
+  border: 1px solid #d0d5dc;
+  border-bottom: 2px solid #3e444f;
+  box-shadow: 
+    inset 0 1px 1px #ffffff,
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skeuo-toggle-track.active {
+  background: linear-gradient(180deg, #0f2d18 0%, #1b4725 100%);
+  border-color: #2ea043;
+}
+.skeuo-toggle-track.active .skeuo-toggle-knob {
+  transform: translateX(32px);
+  background: linear-gradient(180deg, #ffffff 0%, #b2eec0 50%, #46b858 100%);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(63, 185, 80, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   2. NEOMORPHISM (Soft UI Sculpted Extrusions & Inset Debossed Wells)
+   -------------------------------------------------------------------------- */
+/* Extruded Neomorphic Surface */
+.neomorph-surface, .neomorph-card {
+  background: #14181f !important;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 
+    7px 7px 18px #080b0e, 
+    -7px -7px 18px #202732 !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.neomorph-surface:hover, .neomorph-card:hover {
+  box-shadow: 
+    9px 9px 22px #07090c, 
+    -9px -9px 22px #262e3c !important;
+  transform: translateY(-2px);
+}
+
+/* Debossed Sunken Wells for Forms, Inputs & Stat Wells */
+.neomorph-well, .neomorph-input {
+  background: #101318 !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-radius: 14px;
+  box-shadow: 
+    inset 4px 4px 10px #080a0d, 
+    inset -4px -4px 10px #181d25 !important;
+  color: #f0f6fc;
+  transition: all 0.25s ease;
+}
+.neomorph-input:focus, .neomorph-well:focus-within {
+  border-color: rgba(63, 185, 80, 0.45) !important;
+  box-shadow: 
+    inset 4px 4px 10px #080a0d, 
+    inset -4px -4px 10px #181d25,
+    0 0 0 2px rgba(63, 185, 80, 0.25) !important;
+  outline: none !important;
+}
+
+/* Neomorphic Soft Button */
+.neomorph-button {
+  background: #161b22 !important;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 
+    5px 5px 12px #090c10, 
+    -5px -5px 12px #232a34 !important;
+  color: #cbd5e1;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.neomorph-button:hover {
+  color: #ffffff;
+  box-shadow: 
+    6px 6px 16px #080a0d, 
+    -6px -6px 16px #28313e !important;
+}
+.neomorph-button:active, .neomorph-button.active {
+  box-shadow: 
+    inset 3px 3px 8px #080a0d, 
+    inset -3px -3px 8px #222934 !important;
+  color: #3fb950 !important;
+  transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------------------
+   3. GLASSMORPHISM (Frosted Acrylic, Specular Edges, Deep Backdrop Blur)
+   -------------------------------------------------------------------------- */
+.glass-nav, .glass-card {
+  background: rgba(18, 23, 30, 0.68) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 0, 0, 0.65), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.35s ease;
+}
+.glass-card:hover {
+  background: rgba(22, 28, 36, 0.78) !important;
+  border-color: rgba(63, 185, 80, 0.38) !important;
+  border-top-color: rgba(86, 211, 100, 0.5) !important;
+  box-shadow: 
+    0 22px 50px -10px rgba(0, 0, 0, 0.75), 
+    0 0 25px rgba(63, 185, 80, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Glass Pill Chip */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. CLAYMORPHISM (Volumetric 3D Inflated Clay, Soft Dual Inner Shadows)
+   -------------------------------------------------------------------------- */
+.clay-card, .clay-pill, .clay-badge {
+  border-radius: 24px;
+  background: #192128 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 14px 28px -6px rgba(0, 0, 0, 0.5),
+    inset -5px -5px 12px rgba(0, 0, 0, 0.6),
+    inset 5px 5px 12px rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateY(0);
+}
+.clay-pill {
+  border-radius: 9999px !important;
+  padding: 6px 18px;
+}
+.clay-badge {
+  background: #193120 !important;
+  color: #6ee787 !important;
+  border-color: rgba(63, 185, 80, 0.3) !important;
+  box-shadow: 
+    0 8px 18px -4px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.5),
+    inset 4px 4px 8px rgba(110, 231, 135, 0.35) !important;
+}
+.clay-card:hover, .clay-pill:hover, .clay-badge:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 
+    0 18px 34px -6px rgba(0, 0, 0, 0.6),
+    inset -5px -5px 12px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 12px rgba(255, 255, 255, 0.25) !important;
+}
+.clay-card:active, .clay-pill:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 
+    0 6px 12px -2px rgba(0, 0, 0, 0.4),
+    inset -3px -3px 8px rgba(0, 0, 0, 0.7),
+    inset 3px 3px 8px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Clay Step Counter Bubbles */
+.clay-step-bubble {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 15px;
+  background: #233526 !important;
+  color: #56d364 !important;
+  border: 1px solid rgba(86, 211, 100, 0.3);
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.6),
+    inset 4px 4px 8px rgba(86, 211, 100, 0.4) !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.clay-step-bubble:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* --------------------------------------------------------------------------
+   5. MINIMALISM (Airy Breathing Space, Restrained Precision & Editorial Cadence)
+   -------------------------------------------------------------------------- */
+.minimal-clean {
+  background: transparent !important;
+  border: 1px solid #30363d !important;
+  box-shadow: none !important;
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+.minimal-clean:hover {
+  border-color: #f0f6fc !important;
+}
+.minimal-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+}
+.minimal-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+  color: #8b949e;
+}
+
+/* --------------------------------------------------------------------------
+   6. MAXIMALISM (Sensory Density, Ambient Gradient Meshes, Infinite Energy)
+   -------------------------------------------------------------------------- */
+.maximal-mesh-bg {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(63, 185, 80, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(63, 185, 80, 0.15) 0%, transparent 40%);
+  background-size: 150% 150%;
+  animation: maximalMeshDrift 20s ease infinite alternate;
+}
+@keyframes maximalMeshDrift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+.maximal-glow-badge {
+  position: relative;
+  box-shadow: 0 0 20px rgba(63, 185, 80, 0.5), 0 0 40px rgba(86, 211, 100, 0.25) !important;
+  animation: maximalBadgePulse 2s infinite alternate ease-in-out;
+}
+@keyframes maximalBadgePulse {
+  0% { box-shadow: 0 0 15px rgba(63, 185, 80, 0.4); }
+  100% { box-shadow: 0 0 35px rgba(63, 185, 80, 0.7), 0 0 60px rgba(86, 211, 100, 0.4); }
+}
+
+/* --------------------------------------------------------------------------
+   7. NEO-BRUTALISM (Bold 3px Outlines, Hard Solid Offset Drop-Shadows, Raw Mono)
+   -------------------------------------------------------------------------- */
+.brutal-card, .brutal-badge, .brutal-button {
+  background: #161b22;
+  border: 2.5px solid #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 4px 4px 0px #3fb950 !important;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.brutal-card:hover, .brutal-button:hover {
+  transform: translate(-3px, -3px) !important;
+  box-shadow: 7px 7px 0px #3fb950 !important;
+}
+.brutal-badge:hover {
+  transform: none !important;
+}
+.brutal-card:active, .brutal-button:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #3fb950 !important;
+}
+.brutal-badge {
+  font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  padding: 4px 10px !important;
+  border: 2px solid #3fb950 !important;
+  background: #0d1117 !important;
+  color: #3fb950 !important;
+  box-shadow: 3px 3px 0px #ffffff !important;
+}
+.brutal-badge:hover {
+  background: #3fb950 !important;
+  color: #000000 !important;
+  box-shadow: 4px 4px 0px #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. LIQUID GLASS (Iridescent Refraction, Chromatic Prismatic Sheen)
+   -------------------------------------------------------------------------- */
+.liquid-glass-card {
+  position: relative;
+  background: rgba(18, 24, 32, 0.7) !important;
+  backdrop-filter: blur(24px) saturate(210%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(210%) !important;
+  border-radius: 24px;
+  overflow: visible;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(63, 185, 80, 0.15) !important;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Prismatic Iridescent Rim */
+.liquid-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg, 
+    rgba(63, 185, 80, 0.8) 0%, 
+    rgba(56, 189, 248, 0.6) 30%, 
+    rgba(168, 85, 247, 0.6) 65%, 
+    rgba(86, 211, 100, 0.8) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: liquidBorderShift 8s ease infinite alternate;
+}
+@keyframes liquidBorderShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(45deg); }
+}
+
+/* Diagonal Specular Sheen Flare */
+.liquid-glass-card::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    transparent 65%
+  );
+  transform: rotate(-35deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.liquid-glass-card:hover::after {
+  opacity: 1;
+  animation: liquidSweep 2.2s infinite ease-in-out;
+}
+@keyframes liquidSweep {
+  0% { transform: translateY(-40%) rotate(-35deg); }
+  100% { transform: translateY(40%) rotate(-35deg); }
+}
+
+/* --------------------------------------------------------------------------
+   9. SPATIAL UI (Apple VisionOS 3D Perspective Tilt & Cursor Spotlight)
+   -------------------------------------------------------------------------- */
+.spatial-container {
+  perspective: var(--perspective);
+  transform-style: preserve-3d;
+}
+.spatial-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.25s ease-out;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+  will-change: transform;
+}
+.spatial-card:hover {
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(63, 185, 80, 0.25) !important;
+}
+
+/* Spatial Elevated Layer Floating inside card */
+.spatial-layer-1 {
+  transform: translateZ(16px);
+  transition: transform 0.2s ease-out;
+}
+.spatial-layer-2 {
+  transform: translateZ(32px);
+  transition: transform 0.2s ease-out;
+}
+.spatial-layer-3 {
+  transform: translateZ(48px);
+  transition: transform 0.2s ease-out;
+}
+
+/* Cursor Following Dynamic Spotlight */
+.spatial-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(63, 185, 80, 0.16),
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.spatial-spotlight:hover::after {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   10. STYLE INSPECTOR TAGS (Interactive Educational Pill Overlays)
+   -------------------------------------------------------------------------- */
+.style-tag {
+  display: none;
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  z-index: 40;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.show-style-tags .style-tag {
+  display: inline-flex !important;
+  animation: styleTagPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes styleTagPop {
+  0% { opacity: 0; transform: scale(0.6) translateY(5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.style-tag-skeuo,
+.style-tag.skeuo {
+  background: linear-gradient(180deg, #4ac45c, #268034);
+  color: #ffffff;
+  border: 1px solid #7bf791;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+}
+.style-tag-neomorph,
+.style-tag.neomorph {
+  background: #161b22;
+  color: #58a6ff;
+  border: 1px solid #388bfd;
+  box-shadow: 2px 2px 6px #080b0e, -2px -2px 6px #202732;
+}
+.style-tag-glass,
+.style-tag.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.style-tag-clay,
+.style-tag.clay {
+  background: #233526;
+  color: #56d364;
+  border: 1px solid rgba(86, 211, 100, 0.4);
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.5), inset 2px 2px 4px rgba(255,255,255,0.2);
+}
+.style-tag-brutal,
+.style-tag.brutal {
+  background: #ffffff;
+  color: #000000;
+  border: 1.5px solid #000000;
+  box-shadow: 2px 2px 0px #3fb950;
+}
+.style-tag-spatial,
+.style-tag.spatial {
+  background: rgba(15, 23, 42, 0.9);
+  color: #38bdf8;
+  border: 1px solid #0284c7;
+}
+.style-tag-liquid,
+.style-tag.liquid {
+  background: linear-gradient(135deg, #059669, #0284c7, #7c3aed);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.style-tag-minimal,
+.style-tag.minimal {
+  background: #0d1117;
+  color: #8b949e;
+  border: 1px solid #30363d;
+}
+.style-tag-maximal,
+.style-tag.maximal {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================================================
+   GLOBAL THEME OVERRIDES (When user selects a specific single style mode)
+   ========================================================================== */
+
+/* 1. SKEUOMORPHISM MODE */
+[data-design-mode="skeuomorphism"] .bg-\[\#161b22\],
+[data-design-mode="skeuomorphism"] .bg-\[\#1c2128\],
+[data-design-mode="skeuomorphism"] .bg-\[\#0d1117\],
+[data-design-mode="skeuomorphism"] .glass-card,
+[data-design-mode="skeuomorphism"] .neomorph-card,
+[data-design-mode="skeuomorphism"] .clay-card {
+  background: linear-gradient(180deg, #242c36 0%, #171c23 50%, #11151a 100%) !important;
+  border: 1px solid #3a4555 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-bottom: 2px solid #0a0d10 !important;
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.6) inset,
+    0 6px 0 #090c0f,
+    0 12px 28px rgba(0, 0, 0, 0.7) !important;
+}
+[data-design-mode="skeuomorphism"] button,
+[data-design-mode="skeuomorphism"] a.bg-gradient-to-r,
+[data-design-mode="skeuomorphism"] a.bg-\[\#3fb950\] {
+  background: linear-gradient(180deg, #4ac45c 0%, #34a345 50%, #268034 100%) !important;
+  border: 1px solid #7bf791 !important;
+  border-bottom: 3px solid #144f20 !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 4px 0 #1b6329, 0 8px 16px rgba(0,0,0,0.6) !important;
+}
+
+/* 2. NEOMORPHISM MODE */
+[data-design-mode="neomorphism"] body,
+[data-design-mode="neomorphism"] main {
+  background-color: #14181f !important;
+}
+[data-design-mode="neomorphism"] .bg-\[\#161b22\],
+[data-design-mode="neomorphism"] .bg-\[\#1c2128\],
+[data-design-mode="neomorphism"] .glass-card,
+[data-design-mode="neomorphism"] .clay-card,
+[data-design-mode="neomorphism"] .brutal-card {
+  background: #14181f !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 8px 8px 20px #080b0e, -8px -8px 20px #202732 !important;
+  border-radius: 22px !important;
+}
+[data-design-mode="neomorphism"] input,
+[data-design-mode="neomorphism"] textarea,
+[data-design-mode="neomorphism"] select {
+  background: #101318 !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  box-shadow: inset 4px 4px 10px #080a0d, inset -4px -4px 10px #181d25 !important;
+}
+
+/* 3. GLASSMORPHISM MODE */
+[data-design-mode="glassmorphism"] .bg-\[\#161b22\],
+[data-design-mode="glassmorphism"] .bg-\[\#1c2128\],
+[data-design-mode="glassmorphism"] .clay-card,
+[data-design-mode="glassmorphism"] .brutal-card,
+[data-design-mode="glassmorphism"] .neomorph-card {
+  background: rgba(22, 28, 38, 0.6) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  border-radius: 24px !important;
+}
+
+/* 4. CLAYMORPHISM MODE */
+[data-design-mode="claymorphism"] .bg-\[\#161b22\],
+[data-design-mode="claymorphism"] .bg-\[\#1c2128\],
+[data-design-mode="claymorphism"] .glass-card,
+[data-design-mode="claymorphism"] .brutal-card {
+  background: #1c2630 !important;
+  border-radius: 28px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 14px 28px -6px rgba(0, 0, 0, 0.6),
+    inset -6px -6px 14px rgba(0, 0, 0, 0.55),
+    inset 6px 6px 14px rgba(255, 255, 255, 0.18) !important;
+}
+[data-design-mode="claymorphism"] button,
+[data-design-mode="claymorphism"] a.rounded-xl,
+[data-design-mode="claymorphism"] a.rounded-full {
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(0, 0, 0, 0.45), inset 4px 4px 8px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 5. MINIMALISM MODE */
+[data-design-mode="minimalism"] body,
+[data-design-mode="minimalism"] main {
+  background-color: #07090c !important;
+}
+[data-design-mode="minimalism"] .blur-\[160px\],
+[data-design-mode="minimalism"] .blur-\[140px\],
+[data-design-mode="minimalism"] .blur-\[120px\] {
+  opacity: 0.15 !important;
+}
+[data-design-mode="minimalism"] .bg-\[\#161b22\],
+[data-design-mode="minimalism"] .bg-\[\#1c2128\],
+[data-design-mode="minimalism"] .glass-card,
+[data-design-mode="minimalism"] .clay-card,
+[data-design-mode="minimalism"] .brutal-card {
+  background: #0d1117 !important;
+  border: 1px solid #21262d !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+
+/* 6. MAXIMALISM MODE */
+[data-design-mode="maximalism"] body {
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(63, 185, 80, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 85% 35%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(168, 85, 247, 0.18) 0%, transparent 55%) !important;
+  background-attachment: fixed !important;
+}
+[data-design-mode="maximalism"] .bg-\[\#161b22\],
+[data-design-mode="maximalism"] .bg-\[\#1c2128\],
+[data-design-mode="maximalism"] .glass-card {
+  border-color: #3fb950 !important;
+  box-shadow: 0 0 25px rgba(63, 185, 80, 0.4), 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 7. NEO-BRUTALISM MODE */
+[data-design-mode="brutalism"] .bg-\[\#161b22\],
+[data-design-mode="brutalism"] .bg-\[\#1c2128\],
+[data-design-mode="brutalism"] .glass-card,
+[data-design-mode="brutalism"] .clay-card {
+  background: #0d1117 !important;
+  border: 2.5px solid #ffffff !important;
+  box-shadow: 6px 6px 0px #3fb950 !important;
+  border-radius: 6px !important;
+}
+[data-design-mode="brutalism"] button,
+[data-design-mode="brutalism"] a.rounded-xl,
+[data-design-mode="brutalism"] a.rounded-full {
+  border: 2.5px solid #000000 !important;
+  box-shadow: 5px 5px 0px #3fb950 !important;
+  border-radius: 6px !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+}
+
+/* 8. LIQUID GLASS MODE */
+/* Ambient chromatic glows behind everything so the glass has something to refract */
+[data-design-mode="liquid-glass"] body {
+  background-color: #0a0f16 !important;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(63, 185, 80, 0.22) 0%, transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(56, 189, 248, 0.16) 0%, transparent 40%),
+    radial-gradient(circle at 78% 82%, rgba(168, 85, 247, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 20% 88%, rgba(86, 211, 100, 0.16) 0%, transparent 40%) !important;
+  background-attachment: fixed !important;
+}
+/* Dashboard chrome: header bar & sidebar rail become clean frosted panes
+   (translucent, blurred, straight edges, subtle divider — not card chrome) */
+[data-design-mode="liquid-glass"] .app-topbar {
+  background: rgba(10, 15, 22, 0.55) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(86, 211, 100, 0.2) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+[data-design-mode="liquid-glass"] .app-rail {
+  background: rgba(10, 15, 22, 0.5) !important;
+  backdrop-filter: blur(26px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(200%) !important;
+  border: none !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+[data-design-mode="liquid-glass"] .glass-nav {
+  border-color: rgba(86, 211, 100, 0.4) !important;
+  border-top-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 30px rgba(63, 185, 80, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+[data-design-mode="liquid-glass"] .bg-\[\#161b22\]:not(body):not(html):not(.app-rail),
+[data-design-mode="liquid-glass"] .bg-\[\#1c2128\]:not(body):not(html),
+[data-design-mode="liquid-glass"] .bg-\[\#21262d\]:not(body):not(html),
+[data-design-mode="liquid-glass"] .bg-\[\#0d1117\]:not(body):not(html),
+[data-design-mode="liquid-glass"] .glass-card:not(body):not(html),
+[data-design-mode="liquid-glass"] .clay-card:not(body):not(html),
+[data-design-mode="liquid-glass"] .neomorph-card:not(body):not(html),
+[data-design-mode="liquid-glass"] .spatial-card:not(body):not(html),
+[data-design-mode="liquid-glass"] .brutal-card:not(body):not(html),
+[data-design-mode="liquid-glass"] .minimal-clean:not(body):not(html),
+[data-design-mode="liquid-glass"] .neomorph-well:not(body):not(html),
+[data-design-mode="liquid-glass"] .liquid-glass-card:not(body):not(html) {
+  background: rgba(18, 25, 35, 0.55) !important;
+  backdrop-filter: blur(28px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(220%) !important;
+  border: 1px solid rgba(86, 211, 100, 0.35) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(63, 185, 80, 0.18) !important;
+  border-radius: 24px !important;
+}
+/* Hover states on named cards glow brighter green so interactivity stays obvious */
+[data-design-mode="liquid-glass"] .spatial-card:hover,
+[data-design-mode="liquid-glass"] .neomorph-card:hover,
+[data-design-mode="liquid-glass"] .brutal-card:hover,
+[data-design-mode="liquid-glass"] .glass-card:hover,
+[data-design-mode="liquid-glass"] .clay-card:hover,
+[data-design-mode="liquid-glass"] .minimal-clean:hover,
+[data-design-mode="liquid-glass"] .liquid-glass-card:hover {
+  border-color: rgba(86, 211, 100, 0.6) !important;
+  border-top-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(63, 185, 80, 0.28) !important;
+}
+@media (hover: none) {
+  [data-design-mode="liquid-glass"] .spatial-card:hover,
+  [data-design-mode="liquid-glass"] .neomorph-card:hover,
+  [data-design-mode="liquid-glass"] .brutal-card:hover,
+  [data-design-mode="liquid-glass"] .glass-card:hover,
+  [data-design-mode="liquid-glass"] .clay-card:hover,
+  [data-design-mode="liquid-glass"] .minimal-clean:hover,
+  [data-design-mode="liquid-glass"] .liquid-glass-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(63, 185, 80, 0.18) !important;
+  }
+}
+/* Prismatic iridescent top rim on primary content cards */
+[data-design-mode="liquid-glass"] .spatial-card::before,
+[data-design-mode="liquid-glass"] .neomorph-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 8% !important;
+  right: 8% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.7), rgba(168, 85, 247, 0.7), rgba(86, 211, 100, 0.8), transparent) !important;
+  border-radius: 999px !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+/* Form controls: frosted glass surfaces */
+[data-design-mode="liquid-glass"] input,
+[data-design-mode="liquid-glass"] textarea,
+[data-design-mode="liquid-glass"] select {
+  background: rgba(18, 25, 35, 0.6) !important;
+  backdrop-filter: blur(18px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+  border: 1px solid rgba(86, 211, 100, 0.3) !important;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 14px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+[data-design-mode="liquid-glass"] input:focus,
+[data-design-mode="liquid-glass"] textarea:focus,
+[data-design-mode="liquid-glass"] select:focus {
+  border-color: rgba(86, 211, 100, 0.7) !important;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(63, 185, 80, 0.2) !important;
+}
+/* Tables keep a crisp glass plate so rows stay legible */
+[data-design-mode="liquid-glass"] table {
+  background: transparent !important;
+}
+[data-design-mode="liquid-glass"] th {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* 9. SPATIAL UI MODE */
+[data-design-mode="spatial-ui"] .bg-\[\#161b22\],
+[data-design-mode="spatial-ui"] .bg-\[\#1c2128\],
+[data-design-mode="spatial-ui"] .glass-card {
+  transform-style: preserve-3d !important;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease-out !important;
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(63, 185, 80, 0.2) !important;
+}
+[data-design-mode="spatial-ui"] .bg-\[\#161b22\]:hover,
+[data-design-mode="spatial-ui"] .bg-\[\#1c2128\]:hover {
+  transform: perspective(1000px) rotateX(var(--tilt-x, 3deg)) rotateY(var(--tilt-y, -3deg)) translateZ(15px) !important;
+}

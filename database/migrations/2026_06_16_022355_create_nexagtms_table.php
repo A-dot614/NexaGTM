@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('nexagtms', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('company_name');
+            $table->string('industry')->nullable();
+            $table->string('plan')->default('starter'); // starter, growth, enterprise
+            $table->string('status')->default('active'); // active, paused, cancelled
+            $table->date('trial_ends_at')->nullable();
             $table->timestamps();
         });
     }

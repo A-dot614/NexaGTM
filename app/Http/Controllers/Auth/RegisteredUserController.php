@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\Http\Controllers\Auth;
 
@@ -13,6 +13,23 @@ use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
+/**
+ * RegisteredUserController
+ * ────────────────────────
+ * Handles new user registration for NexaGTM.
+ *
+ * Routes:
+ *   GET  /register → create()   Show registration form
+ *   POST /register → store()    Validate + create user + send verification email
+ *
+ * After registration:
+ *   - Fires Registered event (triggers email verification notification)
+ *   - Redirects to /two-factor for OTP verification (if 2FA enabled)
+ *   - Otherwise redirects to /dashboard
+ *
+ * Email verification: User model implements MustVerifyEmail.
+ * Dashboard access requires 'verified' middleware.
+ */
 class RegisteredUserController extends Controller
 {
     /**
@@ -31,14 +48,17 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'name'     => ['required', 'string', 'max:255'],
+            'email'    => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'company'  => ['nullable', 'string', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'terms'    => ['required', 'accepted'],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'company'  => $request->company,
             'password' => Hash::make($request->password),
         ]);
 
@@ -48,4 +68,4 @@ class RegisteredUserController extends Controller
 
         return redirect(route('dashboard', absolute: false));
     }
-}
+} -->
