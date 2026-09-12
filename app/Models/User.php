@@ -11,8 +11,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['name', 'email', 'company', 'password', 'otp_code', 'otp_expires_at', 'two_factor_enabled'])]
-#[Hidden(['password', 'remember_token', 'otp_code', 'two_factor_secret', 'two_factor_recovery_codes'])]
+#[Fillable(['name', 'email', 'company', 'password'])]
+#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
@@ -28,9 +28,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'company',
         'password',
-        'otp_code',
-        'otp_expires_at',
-        'two_factor_enabled',
     ];
 
     /**
@@ -42,9 +39,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return [
             'email_verified_at' => 'datetime',
-            'otp_expires_at' => 'datetime',
-            'two_factor_confirmed_at' => 'datetime',
-            'two_factor_enabled' => 'boolean',
             'password' => 'hashed',
         ];
     }

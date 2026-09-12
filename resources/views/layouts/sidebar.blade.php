@@ -23,7 +23,7 @@
         <div class="h-16 px-6 flex items-center justify-between border-b border-[#30363d] bg-[#0d1117]/50">
             <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
                 <div class="w-9 h-9 bg-[#3fb950] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(63,185,80,0.35)] group-hover:rotate-12 transition-transform duration-300">
-                    <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM" class="w-5 h-5 object-contain" onerror="this.onerror=null; this.src='{{ asset('pic/logo.svg') }}'">
+                    <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM" class="w-5 h-5 object-contain">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-lg font-black text-white tracking-tight leading-none">
@@ -76,26 +76,9 @@
                         <span>Dashboard</span>
                     </a>
 
-                    <!-- Book a Call Link -->
-                    <a href="{{ route('nexagtm.book-call') }}" 
-                       class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('nexagtm.book-call') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-4 h-4 {{ request()->routeIs('nexagtm.book-call') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Book Strategy Call</span>
-                        </div>
-                        <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-[#3fb950]/20 text-[#3fb950] font-mono font-bold uppercase">Free</span>
-                    </a>
+                    
 
-                    <!-- Playbooks Link -->
-                    <a href="{{ route('nexagtm.gtm-playbooks') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('nexagtm.gtm-playbooks') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
-                        <svg class="w-4 h-4 {{ request()->routeIs('nexagtm.gtm-playbooks') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                        <span>GTM Playbooks</span>
-                    </a>
+                    
 
                     <!-- Testimonials Link -->
                     <a href="{{ route('dashboard.testimonials') }}" 
@@ -112,25 +95,13 @@
             <!-- Group 2: Growth & Services -->
             <div>
                 <p class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-[#8b949e] mb-2">
-                    Services & Billing
+                    Community & Site
                 </p>
                 <div class="space-y-1">
                     
-                    <a href="{{ route('nexagtm.price') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('nexagtm.price') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
-                        <svg class="w-4 h-4 {{ request()->routeIs('nexagtm.price') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                        </svg>
-                        <span>Pricing & Plans</span>
-                    </a>
+                    
 
-                    <a href="{{ route('nexagtm.contact') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('nexagtm.contact') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
-                        <svg class="w-4 h-4 {{ request()->routeIs('nexagtm.contact') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                        </svg>
-                        <span>Contact Agency</span>
-                    </a>
+                    
 
                     <a href="{{ route('home') }}" target="_blank"
                        class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-[#8b949e] hover:text-white hover:bg-[#21262d] transition-all duration-200 border-l-4 border-transparent">

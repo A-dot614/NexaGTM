@@ -15,7 +15,7 @@
       <div class="lg:col-span-4 space-y-6">
         <a href="{{ route('home') }}" class="flex items-center gap-3 group inline-flex cursor-pointer">
           <div class="clay-badge w-10 h-10 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-            <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM Logo" class="w-6 h-6 object-contain">
+            <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM Logo" class="w-6 h-6 object-contain">
           </div>
           <span class="text-2xl font-bold tracking-tight text-white">
             Nexa<span class="font-black text-[#3fb950]">GTM</span>

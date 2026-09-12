@@ -180,7 +180,7 @@ class NexagtmController extends Controller
             \Illuminate\Support\Facades\Log::error('Call booking email notification failed: ' . $e->getMessage());
         }
 
-        return redirect()->route('nexagtm.book-call')
+                return redirect()->route('nexagtm.book-call')
             ->with('status', 'Your strategy call has been successfully scheduled! We sent a confirmation to your email.');
     }
 

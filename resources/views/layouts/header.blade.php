@@ -14,7 +14,7 @@
         <!-- Logo Chip (Desktop) -->
         <a href="{{ route('dashboard') }}" class="hidden md:flex items-center gap-2 shrink-0 group">
             <span class="w-7 h-7 rounded-lg bg-[#3fb950] flex items-center justify-center shadow-[0_0_12px_rgba(63,185,80,0.35)] group-hover:rotate-12 transition-transform duration-300">
-                <img src="{{ asset('pic/logo.png') }}" alt="NexaGTM" class="w-4 h-4 object-contain" onerror="this.onerror=null; this.src='{{ asset('pic/logo.svg') }}'">
+                <img src="{{ asset('pic/logo.svg') }}" alt="NexaGTM" class="w-4 h-4 object-contain">
             </span>
             <span class="text-sm font-black tracking-tight text-white leading-none">Nexa<span class="text-[#3fb950]">GTM</span></span>
         </a>
@@ -45,53 +45,6 @@
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-[#3fb950]"></span>
             </span>
             <span>Engine Active</span>
-        </div>
-
-        <!-- Quick "Book a Call" CTA -->
-        <a href="{{ route('nexagtm.book-call') }}" 
-           class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#3fb950] hover:bg-[#349e44] text-[#0d1117] font-black text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(63,185,80,0.3)] hover:scale-105 transition-all duration-200">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span>Book Call</span>
-        </a>
-
-        <!-- Notification Bell (mock alert) -->
-        <div class="relative" x-data="{ openNotifications: false }">
-            <button @click="openNotifications = !openNotifications" 
-                    type="button" 
-                    class="p-2 rounded-xl text-red-400 hover:text-white hover:bg-red-500/15 border border-red-500/40 hover:border-red-500/60 relative focus:outline-none transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-                </svg>
-                <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500"></span>
-            </button>
-
-            <!-- Notifications Flyout -->
-            <div x-show="openNotifications" 
-                 @click.away="openNotifications = false"
-                 x-transition:enter="transition ease-out duration-150"
-                 x-transition:enter-start="opacity-0 scale-95"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-100"
-                 x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
-                 class="absolute right-0 mt-2 w-72 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-2xl p-4 z-50"
-                 style="display: none;">
-                <div class="flex items-center justify-between pb-3 border-b border-[#30363d]">
-                    <span class="text-xs font-bold text-white uppercase tracking-wider">Notifications</span>
-                    <span class="text-[10px] text-[#3fb950] font-mono">1 NEW</span>
-                </div>
-                <div class="py-3">
-                    <div class="p-3 rounded-xl bg-[#0d1117] border border-[#3fb950]/30 flex items-start gap-2.5">
-                        <span class="text-[#3fb950] text-sm">🚀</span>
-                        <div>
-                            <p class="text-xs font-bold text-white">Strategy Engine Ready</p>
-                            <p class="text-[11px] text-[#8a9e8a] mt-0.5">Your GTM workspace is set up and accepting pipeline integrations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- User Profile Dropdown -->
