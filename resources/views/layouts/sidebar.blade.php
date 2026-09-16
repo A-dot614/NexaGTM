@@ -13,8 +13,8 @@
 </div>
 
 <!-- Sidebar Drawer -->
-<aside :class="sidebarOpen ? 'translate-x-0' : 'translate-x-full'"
-       class="app-rail fixed inset-y-0 right-0 z-50 w-64 xl:w-72 bg-[#161b22] border-l border-[#30363d] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:static lg:inset-auto lg:z-auto lg:translate-x-0 lg:h-full lg:border-l-0 lg:border-r">
+<aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+       class="app-rail fixed inset-y-0 left-0 z-50 w-64 xl:w-72 bg-[#161b22] border-r border-[#30363d] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:static lg:inset-auto lg:z-auto lg:translate-x-0 lg:h-full lg:border-r-0 lg:border-l">
     
     <!-- Top Section: Brand & Nav Links -->
     <div class="flex-1 flex flex-col min-h-0 overflow-y-auto">
