@@ -107,13 +107,13 @@
                         <span>Contact Inbox</span>
                     </a>
 
-                    <!-- Call Bookings Link -->
-                    <a href="{{ route('dashboard.bookings') }}" 
-                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('dashboard.bookings*') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
-                        <svg class="w-4 h-4 {{ request()->routeIs('dashboard.bookings*') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    <!-- Playbooks Link -->
+                    <a href="{{ route('dashboard.playbooks') }}" 
+                       class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 {{ request()->routeIs('dashboard.playbooks*') ? 'bg-[#3fb950]/15 text-[#3fb950] border-l-4 border-[#3fb950] shadow-[0_0_15px_rgba(63,185,80,0.1)]' : 'text-[#c9d1d9] hover:text-white hover:bg-[#21262d] border-l-4 border-transparent' }}">
+                        <svg class="w-4 h-4 {{ request()->routeIs('dashboard.playbooks*') ? 'text-[#3fb950]' : 'text-[#8b949e]' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                         </svg>
-                        <span>Call Bookings</span>
+                        <span>Playbooks</span>
                     </a>
 
                     <!-- Testimonials Link -->

@@ -2,7 +2,7 @@
     {{-- 
         NexaGTM Dashboard
         ─────────────────
-        Central hub — links to Contact Inbox, Call Bookings, Testimonials & Analytics,
+        Central hub — links to Contact Inbox, Playbooks, Testimonials & Analytics,
         plus a live overview of the newest submissions.
     --}}
 
@@ -11,11 +11,10 @@
     @php
         $contacts = \App\Models\Contact::count();
         $newContacts = \App\Models\Contact::where('status', 'new')->count();
-        $bookings = \App\Models\CallBooking::count();
-        $scheduledBookings = \App\Models\CallBooking::where('status', 'scheduled')->count();
         $testimonials = \App\Models\Testimonial::count();
+        $playbooks = \App\Models\Playbook::count();
         $recentContacts = \App\Models\Contact::latest()->take(4)->get();
-        $recentBookings = \App\Models\CallBooking::latest()->take(4)->get();
+        $recentPlaybooks = \App\Models\Playbook::latest()->take(4)->get();
     @endphp
 
     <div class="max-w-7xl mx-auto space-y-6">
@@ -32,7 +31,7 @@
                         Welcome back, {{ Auth::user()->name }}
                     </h1>
                     <p class="mt-1 text-[#c9d1d9] text-sm md:text-base">
-                        Del pipeline, conversation aur reviews all ek jagah. Dashboard se contacts, bookings, testimonials aur analytics manage karein.
+                        Del pipeline, conversation aur reviews all ek jagah. Dashboard se contacts, playbooks, testimonials aur analytics manage karein.
                     </p>
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
@@ -62,19 +61,19 @@
                 <p class="text-xs text-[#8a9e8a] mt-1">Messages from the contact page</p>
             </a>
 
-            {{-- Call Bookings --}}
-            <a href="{{ route('dashboard.bookings') }}" class="neomorph-card rounded-2xl p-6 relative group transition hover:border-[#3fb950]/60">
+            {{-- Playbooks --}}
+            <a href="{{ route('dashboard.playbooks') }}" class="neomorph-card rounded-2xl p-6 relative group transition hover:border-[#a371f7]/60">
                 <div class="flex items-center justify-between mb-4">
-                    <span class="w-11 h-11 rounded-xl bg-[#58a6ff]/15 border border-[#58a6ff]/40 text-[#58a6ff] flex items-center justify-center transition group-hover:scale-110">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span class="w-11 h-11 rounded-xl bg-[#a371f7]/15 border border-[#a371f7]/40 text-[#a371f7] flex items-center justify-center transition group-hover:scale-110">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                     </span>
-                    @if($scheduledBookings > 0)
-                        <span class="text-[10px] px-2.5 py-1 rounded-full bg-[#58a6ff]/15 text-[#58a6ff] font-mono font-bold">{{ $scheduledBookings }} scheduled</span>
+                    @if($playbooks > 0)
+                        <span class="text-[10px] px-2.5 py-1 rounded-full bg-[#a371f7]/20 text-[#a371f7] font-mono font-bold">{{ $playbooks }} published</span>
                     @endif
                 </div>
-                <p class="text-3xl font-black text-white">{{ $bookings }}</p>
-                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider mt-1">Call Bookings</p>
-                <p class="text-xs text-[#8a9e8a] mt-1">Strategy call requests</p>
+                <p class="text-3xl font-black text-white">{{ $playbooks }}</p>
+                <p class="text-xs text-[#8a9e8a] font-semibold uppercase tracking-wider mt-1">Playbooks</p>
+                <p class="text-xs text-[#8a9e8a] mt-1">Battle-tested GTM blueprints</p>
             </a>
 
             {{-- Testimonials --}}
@@ -143,32 +142,32 @@
                 @endif
             </div>
 
-            {{-- Recent Bookings --}}
+            {{-- Latest Playbooks --}}
             <div class="spatial-card rounded-3xl p-6 relative">
                 <span class="style-tag spatial">Spatial UI</span>
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-base font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                        <span>Latest Call Bookings</span>
+                        <span>Latest Playbooks</span>
                     </h3>
-                    <a href="{{ route('dashboard.bookings') }}" class="text-xs font-bold text-[#3fb950] hover:underline flex items-center gap-1">
+                    <a href="{{ route('dashboard.playbooks') }}" class="text-xs font-bold text-[#3fb950] hover:underline flex items-center gap-1">
                         <span>View All</span><span>&rarr;</span>
                     </a>
                 </div>
 
-                @if($recentBookings->count() > 0)
+                @if($recentPlaybooks->count() > 0)
                     <ul class="space-y-3">
-                        @foreach($recentBookings as $b)
+                        @foreach($recentPlaybooks as $p)
                             <li class="neomorph-well p-3.5 rounded-xl flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full bg-[#58a6ff]/20 border border-[#58a6ff]/40 text-[#58a6ff] flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <div class="w-9 h-9 rounded-lg bg-[#3fb950]/20 border border-[#3fb950]/40 text-[#3fb950] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between gap-2">
-                                        <p class="font-bold text-white text-sm truncate">{{ $b->name }}</p>
-                                        <span class="text-[10px] text-[#8a9e8a] font-mono flex-shrink-0">{{ $b->created_at->diffForHumans() }}</span>
+                                        <p class="font-bold text-white text-sm truncate">{{ $p->name }}</p>
+                                        <span class="text-[10px] text-[#8a9e8a] font-mono flex-shrink-0">{{ $p->created_at->diffForHumans() }}</span>
                                     </div>
                                     <p class="text-xs text-[#8a9e8a] truncate">
-                                        {{ ucfirst($b->call_type) }} call · {{ \Carbon\Carbon::parse($b->date)->format('M j, Y') }} — {{ $b->time_slot }}
+                                        {{ $p->status }} · <a href="{{ $p->template_url }}" target="_blank" class="hover:text-[#3fb950]">Open template</a>
                                     </p>
                                 </div>
                             </li>
@@ -176,8 +175,8 @@
                     </ul>
                 @else
                     <div class="neomorph-well p-6 rounded-2xl text-center">
-                        <p class="text-sm font-bold text-white">No call bookings yet</p>
-                        <p class="text-xs text-[#8a9e8a] mt-1">Strategy call requests from the booking page will appear here.</p>
+                        <p class="text-sm font-bold text-white">No playbooks yet</p>
+                        <p class="text-xs text-[#8a9e8a] mt-1">Published GTM blueprints will appear here.</p>
                     </div>
                 @endif
             </div>

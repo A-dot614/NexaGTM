@@ -80,7 +80,11 @@ class NexagtmController extends Controller
      */
     public function gtmPlaybooks()
     {
-        return view('site.gtmPlay');
+        $playbooks = \App\Models\Playbook::where('status', 'published')
+            ->latest()
+            ->get();
+
+        return view('site.gtmPlay', compact('playbooks'));
     }
 
     /**

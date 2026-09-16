@@ -6,6 +6,7 @@ use App\Http\Controllers\CallBookingController;
 use App\Http\Controllers\NexagtmController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\PlaybookController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,21 @@ Route::patch('/dashboard/contacts/{contact}', [ContactController::class, 'update
     ->middleware(['auth', 'verified'])->name('dashboard.contacts.update');
 Route::delete('/dashboard/contacts/{contact}', [ContactController::class, 'destroy'])
     ->middleware(['auth', 'verified'])->name('dashboard.contacts.destroy');
+
+Route::get('/dashboard/playbooks', [PlaybookController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks');
+Route::get('/dashboard/playbooks/create', [PlaybookController::class, 'create'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks.create');
+Route::post('/dashboard/playbooks', [PlaybookController::class, 'store'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks.store');
+Route::get('/dashboard/playbooks/{playbook}', [PlaybookController::class, 'show'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks.show');
+Route::get('/dashboard/playbooks/{playbook}/edit', [PlaybookController::class, 'edit'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks.edit');
+Route::patch('/dashboard/playbooks/{playbook}', [PlaybookController::class, 'update'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks.update');
+Route::delete('/dashboard/playbooks/{playbook}', [PlaybookController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])->name('dashboard.playbooks.destroy');
 
 Route::get('/dashboard/bookings', [CallBookingController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard.bookings');
