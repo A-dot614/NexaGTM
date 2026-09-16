@@ -258,7 +258,7 @@
                         <p class="text-xs sm:text-sm text-[#8b949e] mt-1">Calendar invites landing on your sales team's calendar without SDR hiring overhead.</p>
                     </div>
                 </div>
-                <a href="{{ route('nexagtm.book-call') }}" 
+                <a href="{{ route('nexagtm.book-call') }}"
                    class="skeuo-button px-8 py-3.5 text-white font-bold text-xs uppercase tracking-wider whitespace-nowrap">
                     Build Your Engine
                 </a>
@@ -280,14 +280,14 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                
+
                 <!-- Muhammad Hammad Card (Glassmorphic) -->
                 <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 shadow-xl group relative">
                     <span class="style-tag style-tag-glass">Glassmorphism</span>
                     <div>
                         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                             <div class="relative">
-                                <img src="{{ asset('pic/Hammad Pic.png') }}" alt="Muhammad Hammad" 
+                                <img src="{{ asset('pic/Hammad Pic.png') }}" alt="Muhammad Hammad"
                                      class="w-28 h-28 rounded-2xl border-2 border-[#3fb950]/50 object-cover shadow-2xl group-hover:border-[#3fb950] transition-colors clay-pill p-1">
                                 <span class="absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-[#3fb950] text-[#0d1117] flex items-center justify-center text-xs font-bold shadow-md">
                                     ✓
@@ -315,17 +315,17 @@
 
                     <!-- Connect Channels (Neomorphism) -->
                     <div class="pt-6 border-t border-white/10 flex flex-wrap gap-3">
-                        <a href="https://www.linkedin.com/in/gtmautomationexpert/" target="_blank" 
+                        <a href="https://www.linkedin.com/in/gtmautomationexpert/" target="_blank"
                            class="neomorph-button flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
                             <i class="fa-brands fa-linkedin text-[#0077B5]"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://www.upwork.com/freelancers/~01ce573140b4d99a43" target="_blank" 
+                        <a href="https://www.upwork.com/freelancers/~01ce573140b4d99a43" target="_blank"
                            class="neomorph-button flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
-                            <i class="fa-solid fa-star text-amber-400"></i>
+                            <i class="fa-brands fa-upwork text-[#14a800]"></i>
                             <span>Upwork</span>
                         </a>
-                        <a href="https://wa.me/923444543772" target="_blank" 
+                        <a href="https://wa.me/923444543772" target="_blank"
                            class="neomorph-button py-2.5 px-4 text-xs font-semibold flex items-center justify-center transition-all">
                             <i class="fa-brands fa-whatsapp text-[#25D366]"></i>
                         </a>
@@ -338,7 +338,7 @@
                     <div>
                         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                             <div class="relative">
-                                <img src="{{ asset('pic/Abdul Pic.png') }}" alt="Abdul Rehman (Aman)" 
+                                <img src="{{ asset('pic/Abdul Pic.png') }}" alt="Abdul Rehman (Aman)"
                                      class="w-28 h-28 rounded-2xl border-2 border-[#3fb950]/50 object-cover shadow-2xl group-hover:border-[#3fb950] transition-colors clay-pill p-1">
                                 <span class="absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-[#3fb950] text-[#0d1117] flex items-center justify-center text-xs font-bold shadow-md">
                                     ✓
@@ -366,17 +366,17 @@
 
                     <!-- Connect Channels (Neomorphism) -->
                     <div class="pt-6 border-t border-white/10 flex flex-wrap gap-3">
-                        <a href="https://www.linkedin.com/in/abdulrehman-aman/" target="_blank" 
+                        <a href="https://www.linkedin.com/in/abdulrehman-aman/" target="_blank"
                            class="neomorph-button flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
                             <i class="fa-brands fa-linkedin text-[#0077B5]"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://www.upwork.com/freelancers/~010af79d147b770eb1" target="_blank" 
+                        <a href="https://www.upwork.com/freelancers/~010af79d147b770eb1" target="_blank"
                            class="neomorph-button flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
-                            <i class="fa-solid fa-star text-amber-400"></i>
+                            <i class="fa-brands fa-upwork text-[#14a800]"></i>
                             <span>Upwork</span>
                         </a>
-                        <a href="https://wa.me/923257180271" target="_blank" 
+                        <a href="https://wa.me/923480647616" target="_blank"
                            class="neomorph-button py-2.5 px-4 text-xs font-semibold flex items-center justify-center transition-all">
                             <i class="fa-brands fa-whatsapp text-[#25D366]"></i>
                         </a>
@@ -400,12 +400,12 @@
                     </p>
 
                     <div class="flex flex-wrap justify-center gap-4">
-                        <a href="{{ route('nexagtm.book-call') }}" 
+                        <a href="{{ route('nexagtm.book-call') }}"
                            class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#3fb950] to-[#2ea043] hover:from-[#49c95b] hover:to-[#34b14b] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-[0_0_25px_rgba(63,185,80,0.35)]">
                             <i class="fa-solid fa-calendar-days"></i>
                             <span>Schedule a Strategy Call</span>
                         </a>
-                        <a href="{{ route('nexagtm.gtm-playbooks') }}" 
+                        <a href="{{ route('nexagtm.gtm-playbooks') }}"
                            class="inline-flex items-center justify-center gap-2 bg-[#0d1117] hover:bg-[#161b22] border border-[#30363d] hover:border-[#3fb950]/60 text-white font-bold px-8 py-4 rounded-xl transition-all">
                             <i class="fa-solid fa-book-bookmark"></i>
                             <span>View GTM Playbooks</span>

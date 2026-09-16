@@ -2,7 +2,7 @@
   <!-- Subtle Ambient Glows -->
   <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-[#3fb950]/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
   <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#3fb950]/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-  
+
   <!-- Subtle Watermark -->
   <div class="absolute bottom-6 left-10 text-[10rem] sm:text-[14rem] font-black text-white/[0.02] leading-none select-none -z-10 tracking-tighter pointer-events-none">
     NEXAGTM
@@ -10,7 +10,7 @@
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-[#30363d]/80">
-      
+
       <!-- Brand & Mission (4 Cols) -->
       <div class="lg:col-span-4 space-y-6">
         <a href="{{ route('home') }}" class="flex items-center gap-3 group inline-flex cursor-pointer">
@@ -123,10 +123,10 @@
       <!-- Direct Channels & Socials (3 Cols) -->
       <div class="lg:col-span-3 space-y-4">
         <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-[#8b949e]">Direct Channels</h3>
-        
+
         <div class="space-y-3">
           <!-- WhatsApp Link: Neomorphic Well -->
-          <a href="https://wa.me/923444543772" target="_blank" rel="noopener noreferrer" 
+          <a href="https://wa.me/923444543772" target="_blank" rel="noopener noreferrer"
              class="neomorph-well flex items-center justify-between p-3 rounded-xl transition-all text-xs group">
             <div class="flex items-center gap-2.5">
               <i class="fa-brands fa-whatsapp text-base text-[#25D366]"></i>
@@ -141,13 +141,13 @@
           </a>
 
           <!-- Email Link: Neomorphic Well -->
-          <a href="mailto:gtmautomationexpert@gmail.com" 
+          <a href="mailto:hammad@nexagtm.com"
              class="neomorph-well flex items-center justify-between p-3 rounded-xl transition-all text-xs group">
             <div class="flex items-center gap-2.5">
               <i class="fa-regular fa-envelope text-base text-[#3fb950]"></i>
               <div>
                 <span class="text-white font-medium block">Email Consultation</span>
-                <span class="text-[10px] text-[#8b949e]">gtmautomationexpert@gmail.com</span>
+                <span class="text-[10px] text-[#8b949e]">hammad@nexagtm.com</span>
               </div>
             </div>
             <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500 group-hover:text-white transition-colors"></i>
@@ -155,23 +155,19 @@
 
           <!-- Social Buttons Row -->
           <div class="flex items-center gap-2.5 pt-2">
-            <!-- LinkedIn Hammad -->
-            <a href="https://www.linkedin.com/in/gtmautomationexpert/" target="_blank" title="Hammad on LinkedIn" 
-               class="neomorph-well w-10 h-10 rounded-xl hover:border-[#0077B5] hover:bg-[#0077B5] text-slate-400 hover:text-white flex items-center justify-center transition-all">
-              <i class="fa-brands fa-linkedin-in text-sm"></i>
-            </a>
+
             <!-- LinkedIn Aman -->
-            <a href="https://www.linkedin.com/in/abdulrehman-aman/" target="_blank" title="Aman on LinkedIn" 
+            <a href="https://www.linkedin.com/company/nexagtm/" target="_blank" title="Aman on LinkedIn"
                class="neomorph-well w-10 h-10 rounded-xl hover:border-[#0077B5] hover:bg-[#0077B5] text-slate-400 hover:text-white flex items-center justify-center transition-all">
               <i class="fa-brands fa-linkedin-in text-sm"></i>
             </a>
             <!-- Upwork -->
-            <a href="https://www.upwork.com/freelancers/~01ce573140b4d99a43" target="_blank" title="NexaGTM on Upwork" 
+            <a href="https://www.upwork.com/freelancers/~01ce573140b4d99a43" target="_blank" title="NexaGTM on Upwork"
                class="neomorph-well w-10 h-10 rounded-xl hover:border-[#14a800] hover:bg-[#14a800] text-slate-400 hover:text-white flex items-center justify-center transition-all">
-              <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+              <i class="fa-brands fa-upwork text-[#14a800] text-xs"></i>
             </a>
             <!-- WhatsApp button -->
-            <a href="https://wa.me/923444543772" target="_blank" title="Chat on WhatsApp" 
+            <a href="https://wa.me/923444543772" target="_blank" title="Chat on WhatsApp"
                class="neomorph-well w-10 h-10 rounded-xl hover:border-[#25D366] hover:bg-[#25D366] text-slate-400 hover:text-white flex items-center justify-center transition-all">
               <i class="fa-brands fa-whatsapp text-sm"></i>
             </a>
@@ -192,7 +188,7 @@
         Engineering predictable pipeline for B2B SaaS & high-growth agencies.
       </p>
 
-      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
               class="skeuo-button inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold">
         <span>Back to Top</span>
         <i class="fa-solid fa-arrow-up text-[10px]"></i>

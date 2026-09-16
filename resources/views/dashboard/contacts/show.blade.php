@@ -56,6 +56,13 @@
                         @if($contact->company)
                             <span class="text-[11px] px-2.5 py-1 rounded-full bg-[#21262d] border border-[#30363d] text-[#c9d1d9] font-mono">{{ $contact->company }}</span>
                         @endif
+                        @if($contact->linkedin)
+                            <a href="{{ $contact->linkedin }}" target="_blank" rel="noopener noreferrer"
+                               class="text-[11px] px-2.5 py-1 rounded-full bg-[#21262d] border border-[#30363d] text-[#3fb950] hover:text-white hover:border-[#3fb950]/60 font-mono inline-flex items-center gap-1.5 transition">
+                                <i class="fa-brands fa-linkedin"></i>
+                                {{ $contact->linkedin }}
+                            </a>
+                        @endif
                     </div>
                 </div>
                 <div class="flex flex-col items-start sm:items-end gap-2">

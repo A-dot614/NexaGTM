@@ -15,7 +15,7 @@
                 Let's Build Your<br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3fb950] via-[#56d364] to-[#2ea043]">GTM Engine.</span>
             </h1>
-            
+
             <p class="text-base sm:text-xl text-[#8b949e] leading-relaxed max-w-2xl">
                 Stop guessing with your outbound. We build the ICP frameworks, automated infrastructure, and verified lead pipelines that reliably book qualified meetings.
             </p>
@@ -40,7 +40,7 @@
 
         <!-- Main 2-Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
-            
+
             <!-- Left Column: Form Card (Glassmorphism + Neomorphic Inputs) -->
             <div class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-10 shadow-2xl relative">
                 <span class="style-tag style-tag-glass">Glassmorphism</span>
@@ -70,7 +70,7 @@
                 <form method="POST" action="{{ route('nexagtm.contact.send') }}" class="space-y-6">
 
                     @csrf
-                    
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Full Name -->
                         <div class="space-y-2">
@@ -81,7 +81,7 @@
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500 pointer-events-none">
                                     <i class="fa-regular fa-user text-sm"></i>
                                 </span>
-                                <input name="name" value="{{ old('name') }}" type="text" required placeholder="John Doe" 
+                                <input name="name" value="{{ old('name') }}" type="text" required placeholder="John Doe"
                                     class="neomorph-input w-full pl-11 pr-4 py-3.5 text-sm placeholder-slate-500">
                             </div>
                             @error('name')<p class="text-xs text-rose-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</p>@enderror
@@ -96,7 +96,7 @@
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500 pointer-events-none">
                                     <i class="fa-regular fa-envelope text-sm"></i>
                                 </span>
-                                <input name="email" value="{{ old('email') }}" type="email" required placeholder="john@company.com" 
+                                <input name="email" value="{{ old('email') }}" type="email" required placeholder="john@company.com"
                                     class="neomorph-input w-full pl-11 pr-4 py-3.5 text-sm placeholder-slate-500">
                             </div>
                             @error('email')<p class="text-xs text-rose-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</p>@enderror
@@ -111,7 +111,7 @@
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500 pointer-events-none">
                                     <i class="fa-solid fa-phone text-sm"></i>
                                 </span>
-                                <input name="phone" value="{{ old('phone') }}" type="tel" placeholder="+1 (555) 123-4567" 
+                                <input name="phone" value="{{ old('phone') }}" type="tel" placeholder="+1 (555) 123-4567"
                                     class="neomorph-input w-full pl-11 pr-4 py-3.5 text-sm placeholder-slate-500">
                             </div>
                         </div>
@@ -125,9 +125,24 @@
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500 pointer-events-none">
                                     <i class="fa-regular fa-building text-sm"></i>
                                 </span>
-                                <input name="company" value="{{ old('company') }}" type="text" placeholder="Acme SaaS, Inc." 
+                                <input name="company" value="{{ old('company') }}" type="text" placeholder="Acme SaaS, Inc."
                                     class="neomorph-input w-full pl-11 pr-4 py-3.5 text-sm placeholder-slate-500">
                             </div>
+                        </div>
+
+                        <!-- LinkedIn URL -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-[#8b949e]">
+                                LinkedIn URL <span class="text-[#3fb950]">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500 pointer-events-none">
+                                    <i class="fa-brands fa-linkedin text-sm"></i>
+                                </span>
+                                <input name="linkedin" value="{{ old('linkedin') }}" type="url" required placeholder="https://www.linkedin.com/in/yourprofile"
+                                    class="neomorph-input w-full pl-11 pr-4 py-3.5 text-sm placeholder-slate-500">
+                            </div>
+                            @error('linkedin')<p class="text-xs text-rose-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</p>@enderror
                         </div>
                     </div>
 
@@ -138,7 +153,7 @@
                                 Project Subject <span class="text-[#3fb950]">*</span>
                             </label>
                             <div class="relative">
-                                <select name="subject" required 
+                                <select name="subject" required
                                     class="neomorph-input w-full px-4 py-3.5 text-sm cursor-pointer appearance-none">
                                     <option value="" disabled {{ old('subject') ? '' : 'selected' }}>Select your primary objective</option>
                                     <option value="Outbound Lead Generation" {{ old('subject') === 'Outbound Lead Generation' ? 'selected' : '' }}>Outbound Lead Generation & Appointments</option>
@@ -160,7 +175,7 @@
                                 Monthly Budget <span class="text-slate-500 text-[10px] lowercase">(optional)</span>
                             </label>
                             <div class="relative">
-                                <select name="budget" 
+                                <select name="budget"
                                     class="neomorph-input w-full px-4 py-3.5 text-sm cursor-pointer appearance-none">
                                     <option value="" {{ old('budget') ? '' : 'selected' }}>Select estimated budget</option>
                                     <option value="<$1k" {{ old('budget') === '<$1k' ? 'selected' : '' }}>Less than $1,000 / mo</option>
@@ -181,8 +196,8 @@
                         <label class="block text-xs font-semibold uppercase tracking-wider text-[#8b949e]">
                             Your Project or Question <span class="text-[#3fb950]">*</span>
                         </label>
-                        <textarea name="message" rows="5" required 
-                            placeholder="Tell us about your target market, current outbound bottlenecks, tools in your stack (e.g. Clay, Smartlead), or what specific results you need..." 
+                        <textarea name="message" rows="5" required
+                            placeholder="Tell us about your target market, current outbound bottlenecks, tools in your stack (e.g. Clay, Smartlead), or what specific results you need..."
                             class="neomorph-input w-full p-4 placeholder-slate-600 text-sm leading-relaxed">{{ old('message') }}</textarea>
                         @error('message')<p class="text-xs text-rose-400 mt-1 flex items-center gap-1"><i class="fa-solid fa-circle-exclamation"></i> {{ $message }}</p>@enderror
                     </div>
@@ -193,7 +208,7 @@
                             How Did You Hear About NexaGTM?
                         </label>
                         <div class="relative">
-                            <select name="source" 
+                            <select name="source"
                                 class="neomorph-input w-full px-4 py-3.5 text-sm cursor-pointer appearance-none">
                                 <option value="" {{ old('source') ? '' : 'selected' }}>Select an option</option>
                                 <option value="LinkedIn" {{ old('source') === 'LinkedIn' ? 'selected' : '' }}>LinkedIn</option>
@@ -211,7 +226,7 @@
 
                     <!-- Submit Button with Skeuomorphic Tactile Feel & Indicator LED -->
                     <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        <button type="submit" 
+                        <button type="submit"
                             class="skeuo-button w-full sm:w-auto px-8 py-4 text-[#0d1117] font-bold text-sm tracking-wide rounded-xl flex items-center justify-center gap-3">
                             <span class="skeuo-led bg-[#0d1117] w-2 h-2 rounded-full inline-block animate-pulse"></span>
                             <span>Transmit Transmission</span>
@@ -230,12 +245,12 @@
 
             <!-- Right Column: Sidebar Cards (5 cols) -->
             <div class="lg:col-span-5 space-y-6">
-                
+
                 <!-- Fast-Track Card: Liquid Glass Style -->
                 <div class="liquid-glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
                     <span class="style-tag liquid">Liquid Glass</span>
                     <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#3fb950]/15 rounded-full blur-3xl pointer-events-none"></div>
-                    
+
                     <div class="relative z-10">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full clay-badge text-[10px] font-bold uppercase tracking-widest mb-4">
                             <i class="fa-regular fa-calendar-check"></i> Fast Track
@@ -246,7 +261,7 @@
                             Skip the back-and-forth email queue. Book a free 30-minute scoping & strategy consultation directly on our calendar.
                         </p>
 
-                        <a href="{{ route('nexagtm.book-call') }}" 
+                        <a href="{{ route('nexagtm.book-call') }}"
                            class="skeuo-button inline-flex items-center justify-center w-full gap-2 px-6 py-3.5 text-[#0d1117] font-bold text-xs uppercase tracking-wider rounded-xl">
                             <i class="fa-solid fa-calendar-days"></i>
                             <span>Schedule Strategy Call</span>
@@ -266,7 +281,7 @@
 
                     <div class="space-y-4 text-sm">
                         <!-- WhatsApp Direct with Neomorphic Well -->
-                        <a href="https://wa.me/923444543772" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://wa.me/923444543772" target="_blank" rel="noopener noreferrer"
                            class="neomorph-well flex items-center justify-between p-4 rounded-2xl group transition-all">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center text-lg shadow-inner">
@@ -283,7 +298,7 @@
                         </a>
 
                         <!-- Email Direct with Neomorphic Well -->
-                        <a href="mailto:gtmautomationexpert@gmail.com" 
+                        <a href="mailto:hammad@nexagtm.com"
                            class="neomorph-well flex items-center justify-between p-4 rounded-2xl group transition-all">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-[#3fb950]/15 text-[#3fb950] flex items-center justify-center text-lg shadow-inner">
@@ -291,7 +306,7 @@
                                 </div>
                                 <div>
                                     <div class="text-white font-semibold group-hover:text-[#3fb950] transition-colors">Direct Email</div>
-                                    <div class="text-xs text-[#8b949e]">gtmautomationexpert@gmail.com</div>
+                                    <div class="text-xs text-[#8b949e]">hammad@nexagtm.com</div>
                                 </div>
                             </div>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-white transition-colors"></i>
@@ -301,12 +316,12 @@
                         <div class="pt-4 border-t border-[#30363d]/80">
                             <div class="text-xs font-semibold text-[#8b949e] uppercase tracking-wider mb-3">Founders on LinkedIn</div>
                             <div class="grid grid-cols-2 gap-3">
-                                <a href="https://www.linkedin.com/in/gtmautomationexpert/" target="_blank" 
+                                <a href="https://www.linkedin.com/in/gtmautomationexpert/" target="_blank"
                                    class="neomorph-well p-3 rounded-xl flex items-center gap-2 text-xs font-medium text-slate-300 hover:text-white transition-all">
                                     <i class="fa-brands fa-linkedin text-[#0077B5]"></i>
                                     <span>Hammad</span>
                                 </a>
-                                <a href="https://www.linkedin.com/in/abdulrehman-aman/" target="_blank" 
+                                <a href="https://www.linkedin.com/in/abdulrehman-aman/" target="_blank"
                                    class="neomorph-well p-3 rounded-xl flex items-center gap-2 text-xs font-medium text-slate-300 hover:text-white transition-all">
                                     <i class="fa-brands fa-linkedin text-[#0077B5]"></i>
                                     <span>Aman</span>
@@ -356,7 +371,7 @@
                     </ol>
                 </div>
 
-                <!-- Testimonial Quote Pill: Glass Card with Minimal Typography -->
+                {{-- <!-- Testimonial Quote Pill: Glass Card with Minimal Typography -->
                 <div class="glass-card p-5 rounded-2xl text-xs relative">
                     <span class="style-tag glass">Glass Quote</span>
                     <div class="flex items-center gap-1 text-[#3fb950] mb-2">
@@ -375,7 +390,7 @@
                             <span class="font-bold text-white block">Jeff Brown</span>
                             <span class="text-[10px] text-slate-500">Founder, PaveTalent</span>
                         </div>
-                </div>
+                </div> --}}
 
             </div>
 

@@ -24,6 +24,7 @@ class ContactRequest extends FormRequest
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
             'company' => 'nullable|string|max:255',
+            'linkedin' => ['required', 'url', 'max:255', 'regex:/linkedin\.com/i'],
             'subject' => 'required|string|max:255',
             'budget' => 'nullable|string|max:100',
             'message' => 'required|string|max:5000',

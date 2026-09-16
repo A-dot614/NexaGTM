@@ -27,6 +27,7 @@
                     'Email' => $data['email'] ?? '-',
                     'Phone' => $data['phone'] ?? '-',
                     'Company' => $data['company'] ?? '-',
+                    'LinkedIn' => $data['linkedin'] ?? '-',
                     'Subject' => $data['subject'] ?? '-',
                     'Budget' => $data['budget'] ?? '-',
                     'Source' => $data['source'] ?? '-'

@@ -61,6 +61,13 @@
                                         <div class="min-w-0">
                                             <div class="font-bold text-white">{{ $c->name }}</div>
                                             <div class="text-[11px] text-[#8a9e8a] truncate max-w-[220px]">{{ $c->email }}{{ $c->company ? ' · ' . $c->company : '' }}</div>
+                                            @if($c->linkedin)
+                                                <a href="{{ $c->linkedin }}" target="_blank" rel="noopener noreferrer"
+                                                   class="text-[11px] text-[#3fb950] hover:text-white transition-colors inline-flex items-center gap-1 max-w-[220px] truncate">
+                                                    <i class="fa-brands fa-linkedin"></i>
+                                                    {{ $c->linkedin }}
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </td>
