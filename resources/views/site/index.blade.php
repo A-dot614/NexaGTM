@@ -9,11 +9,11 @@
         {{-- ── HERO SECTION ── --}}
         <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-16 sm:pb-24 text-center animate-fade-in-up relative">
             <!-- Live Availability Pill (Claymorphism + Skeuomorphic LED) -->
-            <div class="clay-badge clay-pill inline-flex items-center gap-2.5 px-5 py-2 mb-6 text-xs font-bold tracking-wide relative cursor-pointer">
+            <!-- <div class="clay-badge clay-pill inline-flex items-center gap-2.5 px-5 py-2 mb-6 text-xs font-bold tracking-wide relative cursor-pointer">
                 <span class="style-tag style-tag-clay">Claymorphism</span>
                 <span class="skeuo-led"></span>
-                <span>Now Booking for Q1/Q2 · 2 Outbound Slots Remaining</span>
-            </div>
+                <span>Now Booking for Q1/Q2 · 2 Outbound Slots Remainin</span>
+            </div> -->
 
             <!-- Main Heading (Minimalist Typographic Hierarchy) -->
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight">
@@ -45,7 +45,7 @@
             <!-- Social Proof Bar (Neo-Brutalism Stamps + Analog Star Rating) -->
             <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 pt-8 border-t border-[#30363d]/60 text-xs text-[#8b949e] relative">
                 <span class="style-tag style-tag-brutal">Neo-Brutalism</span>
-                <div class="brutal-badge flex items-center gap-2">
+                <!-- <div class="brutal-badge flex items-center gap-2">
                     <div class="flex text-amber-400 text-xs">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -55,7 +55,7 @@
                     </div>
                     <span class="text-white font-bold">5.0 RATING</span>
                     <span class="text-slate-400 font-mono text-[10px]">(UPWORK & LINKEDIN)</span>
-                </div>
+                </div> -->
                 <div class="brutal-badge flex items-center gap-2">
                     <i class="fa-solid fa-check-double text-[#3fb950]"></i>
                     <span class="text-white font-bold">10,000+</span>
@@ -198,7 +198,7 @@
             </div>
 
             <!-- Modern 3-Way Comparison Matrix (Neomorphism Chassis + Liquid Glass Spotlight) -->
-            <div class="mt-16 neomorph-card p-6 sm:p-10 shadow-2xl overflow-x-auto relative">
+            <div class="mt-16 neomorph-card p-6 sm:p-10 shadow-2xl overflow-x-hidden overflow-y-hidden relative">
                 <span class="style-tag style-tag-neomorph">Neomorphic Well</span>
                 <div class="mb-8">
                     <span class="text-xs font-bold uppercase tracking-widest text-[#3fb950]">The Economic Advantage</span>

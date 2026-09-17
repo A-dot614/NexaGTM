@@ -8,7 +8,7 @@
     NEXAGTM
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-[#30363d]/80">
 
       <!-- Brand & Mission (4 Cols) -->
@@ -188,11 +188,7 @@
         Engineering predictable pipeline for B2B SaaS & high-growth agencies.
       </p>
 
-      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-              class="skeuo-button inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold">
-        <span>Back to Top</span>
-        <i class="fa-solid fa-arrow-up text-[10px]"></i>
-      </button>
+      <a href="https://abdullahbinmumtaz.com" class="text-[11px] text-slate-500 font-mono" target="_blank" rel="noopener noreferrer">Developed by AbdullahBinMumtaz</a>
     </div>
   </div>
 </footer>
