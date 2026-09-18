@@ -188,7 +188,7 @@
         Engineering predictable pipeline for B2B SaaS & high-growth agencies.
       </p>
 
-      <a href="https://abdullahbinmumtaz.com" class="text-[11px] text-slate-500 font-mono" target="_blank" rel="noopener noreferrer">Developed by AbdullahBinMumtaz</a>
+      <a href="https://abdullahbinmumtaz.com" class="text-[11px] font-semibold text-slate-400 font-mono hover:text-[#3fb950] transition-colors" target="_blank" rel="noopener noreferrer">Developed by AbdullahBinMumtaz</a>
     </div>
   </div>
 </footer>
