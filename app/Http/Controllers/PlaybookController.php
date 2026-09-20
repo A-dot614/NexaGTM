@@ -34,13 +34,25 @@ class PlaybookController extends Controller
     {
         $validated = $this->validatePayload($request);
 
-        if ($videoUrl = $this->storeVideo($request)) {
-            $validated['video_url'] = $videoUrl;
+        $videoSourceType = $request->input('video_source_type', 'file');
+        $videoUrl = null;
+
+        if ($videoSourceType === 'file' && $request->hasFile('video')) {
+            $videoUrl = $this->storeVideo($request);
+        } elseif ($videoSourceType === 'url' && !empty($validated['video_url'])) {
+            $videoUrl = $validated['video_url'];
+        } elseif ($request->hasFile('video')) {
+            $videoUrl = $this->storeVideo($request);
+        } elseif (!empty($validated['video_url'])) {
+            $videoUrl = $validated['video_url'];
         }
 
-        unset($validated['video']);
+        $validated['video_url'] = $videoUrl;
+        $validated['status'] = $validated['status'] ?? 'published';
 
-        Playbook::create($validated);
+        unset($validated['video'], $validated['video_source_type'], $validated['remove_video']);
+
+        $playbook = Playbook::create($validated);
 
         ActivityLog::record('playbook', 'created', 'New playbook added: ' . $validated['name']);
 
@@ -48,6 +60,7 @@ class PlaybookController extends Controller
             return response()->json([
                 'message' => 'Playbook added successfully.',
                 'redirect' => route('dashboard.playbooks'),
+                'playbook' => $playbook,
             ]);
         }
 
@@ -78,12 +91,54 @@ class PlaybookController extends Controller
     {
         $validated = $this->validatePayload($request);
 
-        if ($videoUrl = $this->storeVideo($request)) {
+        $videoSourceType = $request->input('video_source_type');
+        $removeVideo = $request->boolean('remove_video');
+
+        if ($removeVideo || $videoSourceType === 'none') {
             $this->deleteVideo($playbook->video_url);
-            $validated['video_url'] = $videoUrl;
+            $validated['video_url'] = null;
+        } elseif ($videoSourceType === 'file') {
+            if ($request->hasFile('video')) {
+                $newVideoUrl = $this->storeVideo($request);
+                if ($newVideoUrl) {
+                    $this->deleteVideo($playbook->video_url);
+                    $validated['video_url'] = $newVideoUrl;
+                }
+            } else {
+                $validated['video_url'] = $playbook->video_url;
+            }
+        } elseif ($videoSourceType === 'url') {
+            $inputUrl = $validated['video_url'] ?? null;
+            if (!empty($inputUrl)) {
+                if ($playbook->video_url !== $inputUrl) {
+                    $this->deleteVideo($playbook->video_url);
+                }
+                $validated['video_url'] = $inputUrl;
+            } else {
+                $this->deleteVideo($playbook->video_url);
+                $validated['video_url'] = null;
+            }
+        } elseif ($videoSourceType === 'keep') {
+            $validated['video_url'] = $playbook->video_url;
+        } else {
+            // Backward-compatible fallbacks
+            if ($request->hasFile('video')) {
+                $newVideoUrl = $this->storeVideo($request);
+                if ($newVideoUrl) {
+                    $this->deleteVideo($playbook->video_url);
+                    $validated['video_url'] = $newVideoUrl;
+                }
+            } elseif ($request->filled('video_url')) {
+                if ($playbook->video_url !== $validated['video_url']) {
+                    $this->deleteVideo($playbook->video_url);
+                }
+                $validated['video_url'] = $validated['video_url'];
+            } else {
+                $validated['video_url'] = $playbook->video_url;
+            }
         }
 
-        unset($validated['video']);
+        unset($validated['video'], $validated['video_source_type'], $validated['remove_video']);
 
         $playbook->update($validated);
 
@@ -121,11 +176,42 @@ class PlaybookController extends Controller
      */
     private function validatePayload(Request $request): array
     {
+        if ($request->has('template_url') && is_string($request->input('template_url'))) {
+            $request->merge(['template_url' => $this->normalizeUrl($request->input('template_url'))]);
+        }
+
+        if ($request->has('video_url') && is_string($request->input('video_url'))) {
+            $request->merge(['video_url' => $this->normalizeUrl($request->input('video_url'))]);
+        }
+
         return $request->validate([
             'name' => 'required|string|max:255',
-            'template_url' => 'required|url|max:255',
+            'description' => 'nullable|string',
+            'template_url' => 'required|url|max:2048',
+            'video_source_type' => 'nullable|string|in:file,url,none,keep',
             'video' => 'nullable|file|mimes:mp4,mov,webm|max:102400',
+            'video_url' => 'nullable|url|max:2048',
+            'remove_video' => 'nullable|boolean',
         ]);
+    }
+
+    private function normalizeUrl(?string $url): ?string
+    {
+        if (!$url) {
+            return null;
+        }
+
+        $url = trim($url);
+
+        if ($url === '') {
+            return null;
+        }
+
+        if (!preg_match('~^(?:f|ht)tps?://~i', $url)) {
+            $url = 'https://' . $url;
+        }
+
+        return $url;
     }
 
     /**

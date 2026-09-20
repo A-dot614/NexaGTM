@@ -166,6 +166,9 @@
                                         <p class="font-bold text-white text-sm truncate">{{ $p->name }}</p>
                                         <span class="text-[10px] text-[#8a9e8a] font-mono flex-shrink-0">{{ $p->created_at->diffForHumans() }}</span>
                                     </div>
+                                    @if($p->description)
+                                        <p class="text-xs text-[#8b949e] truncate">{{ \Illuminate\Support\Str::limit($p->description, 65) }}</p>
+                                    @endif
                                     <p class="text-xs text-[#8a9e8a] truncate">
                                         {{ $p->status }} · <a href="{{ $p->template_url }}" target="_blank" class="hover:text-[#3fb950]">Open template</a>
                                     </p>

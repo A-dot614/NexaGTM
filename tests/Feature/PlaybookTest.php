@@ -125,4 +125,81 @@ class PlaybookTest extends TestCase
         $this->assertDatabaseMissing('playbooks', ['id' => $playbook->id]);
         Storage::disk('public')->assertMissing('playbooks/videos/old.mp4');
     }
+
+    public function test_playbook_can_be_created_with_description_and_video_url(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->post('/dashboard/playbooks', [
+            'name' => 'B2B Outbound Blueprint',
+            'description' => "This is line one.\nThis is a longer line detailing the entire outreach system with Clay and Smartlead.",
+            'template_url' => 'https://docs.google.com/template',
+            'video_source_type' => 'url',
+            'video_url' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        ]);
+
+        $response->assertRedirect('/dashboard/playbooks');
+
+        $playbook = Playbook::firstOrFail();
+        $this->assertSame('B2B Outbound Blueprint', $playbook->name);
+        $this->assertStringContainsString('This is line one.', $playbook->description);
+        $this->assertSame('https://www.youtube.com/watch?v=dQw4w9WgXcQ', $playbook->video_url);
+    }
+
+    public function test_playbook_can_switch_from_uploaded_video_to_video_url_and_frees_old_file(): void
+    {
+        Storage::fake('public');
+
+        $user = User::factory()->create();
+        $playbook = Playbook::create([
+            'name' => 'Initial File Playbook',
+            'description' => 'Initial description',
+            'template_url' => 'https://docs.google.com/template',
+            'video_url' => Storage::disk('public')->url('playbooks/videos/initial.mp4'),
+        ]);
+
+        Storage::disk('public')->put('playbooks/videos/initial.mp4', 'fake-video-content');
+
+        $response = $this->actingAs($user)->patchJson('/dashboard/playbooks/' . $playbook->id, [
+            'name' => 'Updated Playbook Name',
+            'description' => 'Updated multi-line description text.',
+            'template_url' => 'https://docs.google.com/template',
+            'video_source_type' => 'url',
+            'video_url' => 'https://www.loom.com/share/abcdef123456',
+        ]);
+
+        $response->assertOk();
+
+        $playbook->refresh();
+        $this->assertSame('Updated Playbook Name', $playbook->name);
+        $this->assertSame('Updated multi-line description text.', $playbook->description);
+        $this->assertSame('https://www.loom.com/share/abcdef123456', $playbook->video_url);
+        Storage::disk('public')->assertMissing('playbooks/videos/initial.mp4');
+    }
+
+    public function test_playbook_can_remove_video(): void
+    {
+        Storage::fake('public');
+
+        $user = User::factory()->create();
+        $playbook = Playbook::create([
+            'name' => 'Has Video',
+            'template_url' => 'https://docs.google.com/template',
+            'video_url' => Storage::disk('public')->url('playbooks/videos/test.mp4'),
+        ]);
+
+        Storage::disk('public')->put('playbooks/videos/test.mp4', 'fake');
+
+        $response = $this->actingAs($user)->patchJson('/dashboard/playbooks/' . $playbook->id, [
+            'name' => 'Has Video',
+            'template_url' => 'https://docs.google.com/template',
+            'remove_video' => 1,
+        ]);
+
+        $response->assertOk();
+
+        $playbook->refresh();
+        $this->assertNull($playbook->video_url);
+        Storage::disk('public')->assertMissing('playbooks/videos/test.mp4');
+    }
 }

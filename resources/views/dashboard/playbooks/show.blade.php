@@ -45,6 +45,13 @@
                 </span>
             </div>
 
+            @if($playbook->description)
+                <div class="bg-[#0d1117] border border-[#30363d] rounded-2xl p-6 mb-8">
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-[#8a9e8a] mb-2">Description</p>
+                    <p class="text-sm text-slate-300 whitespace-pre-line leading-relaxed">{{ $playbook->description }}</p>
+                </div>
+            @endif
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div class="bg-[#0d1117] border border-[#30363d] rounded-2xl p-5">
                     <p class="text-[10px] font-bold uppercase tracking-wider text-[#8a9e8a] mb-2">Template URL</p>
@@ -55,7 +62,14 @@
                     </a>
                 </div>
                 <div class="bg-[#0d1117] border border-[#30363d] rounded-2xl p-5">
-                    <p class="text-[10px] font-bold uppercase tracking-wider text-[#8a9e8a] mb-2">Explaining Video URL</p>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-[#8a9e8a]">Explaining Video</p>
+                        @if($playbook->video_url)
+                            <span class="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#21262d] text-[#8a9e8a]">
+                                {{ str_contains($playbook->video_url, '/storage/') ? 'Uploaded File' : 'External Link' }}
+                            </span>
+                        @endif
+                    </div>
                     @if($playbook->video_url)
                         <a href="{{ $playbook->video_url }}" target="_blank" rel="noopener noreferrer"
                            class="text-sm font-semibold text-[#8a9e8a] hover:text-[#3fb950] transition inline-flex items-center gap-2 break-all">
@@ -67,6 +81,24 @@
                     @endif
                 </div>
             </div>
+
+            @if($playbook->video_url)
+                <div class="bg-[#0d1117] border border-[#30363d] rounded-2xl p-6 mb-8">
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse"></span>
+                            <p class="text-xs font-bold uppercase tracking-wider text-[#8a9e8a]">Playbook Explainer Video</p>
+                        </div>
+                        <a href="{{ $playbook->video_url }}" target="_blank" rel="noopener noreferrer"
+                           class="text-xs text-[#3fb950] hover:underline flex items-center gap-1.5 font-bold">
+                            <span>Open Source Video</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+
+                    <x-playbook-video-player :playbook="$playbook" />
+                </div>
+            @endif
 
             <form method="POST" action="{{ route('dashboard.playbooks.destroy', $playbook) }}"
                   onsubmit="return confirm('Are you sure you want to delete this playbook?');">

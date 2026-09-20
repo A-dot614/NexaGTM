@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'admin@nexagtm.com'],
             [
                 'name' => 'Hammad',
-                'email' => 'admin@nexagtm.com',
+                'email' => 'abdullah.term369@gmail.com',
                 'password' => Hash::make('Hammad@123'),
             ]
         );

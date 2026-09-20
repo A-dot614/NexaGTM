@@ -60,7 +60,7 @@ Route::get('/dashboard/playbooks/{playbook}', [PlaybookController::class, 'show'
     ->middleware(['auth', 'verified'])->name('dashboard.playbooks.show');
 Route::get('/dashboard/playbooks/{playbook}/edit', [PlaybookController::class, 'edit'])
     ->middleware(['auth', 'verified'])->name('dashboard.playbooks.edit');
-Route::patch('/dashboard/playbooks/{playbook}', [PlaybookController::class, 'update'])
+Route::match(['patch', 'put'], '/dashboard/playbooks/{playbook}', [PlaybookController::class, 'update'])
     ->middleware(['auth', 'verified'])->name('dashboard.playbooks.update');
 Route::delete('/dashboard/playbooks/{playbook}', [PlaybookController::class, 'destroy'])
     ->middleware(['auth', 'verified'])->name('dashboard.playbooks.destroy');

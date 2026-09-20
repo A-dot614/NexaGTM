@@ -50,6 +50,18 @@
                             {{ $pb->name }}
                         </h3>
 
+                        @if($pb->description)
+                            <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6 whitespace-pre-line">
+                                {{ $pb->description }}
+                            </p>
+                        @endif
+
+                        @if($pb->video_url)
+                            <div class="mb-6">
+                                <x-playbook-video-player :playbook="$pb" />
+                            </div>
+                        @endif
+
                         <div class="mt-auto pt-6 border-t border-[#21262d] flex flex-wrap items-center gap-3">
                             <a href="{{ $pb->template_url }}" target="_blank" rel="noopener noreferrer"
                                class="skeuo-button px-5 py-3 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2">
@@ -58,9 +70,10 @@
                             </a>
                             @if($pb->video_url)
                                 <a href="{{ $pb->video_url }}" target="_blank" rel="noopener noreferrer"
-                                   class="neomorph-button px-5 py-3 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2">
-                                    <i class="fa-solid fa-play text-xs text-[#3fb950]"></i>
-                                    <span>Watch Explainer</span>
+                                   class="neomorph-button px-5 py-3 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2"
+                                   title="Open original video source">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-[#3fb950]"></i>
+                                    <span>Source Video</span>
                                 </a>
                             @endif
                         </div>

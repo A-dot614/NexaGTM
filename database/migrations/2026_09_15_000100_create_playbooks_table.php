@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('playbooks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('template_url');
-            $table->string('video_url')->nullable();
+            $table->text('description')->nullable();
+            $table->string('template_url', 2048);
+            $table->string('video_url', 2048)->nullable();
             $table->string('status')->default('published');
             $table->timestamps();
         });
