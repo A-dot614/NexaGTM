@@ -17,9 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'abdullah.term369@gmail.com',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'abdullah.term369@gmail.com'],
+            ['name' => 'Test User', 'password' => bcrypt('password')]
+        );
+
+        $this->call(NexagtmSeeder::class);
     }
 }
