@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,11 +18,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        // User::firstOrCreate(
+        //     ['email' => 'abdullah.term369@gmail.com'],
+        //     ['name' => 'Test User', 'password' => bcrypt('password')]
+        // );
+
         User::firstOrCreate(
-            ['email' => 'abdullah.term369@gmail.com'],
-            ['name' => 'Test User', 'password' => bcrypt('password')]
+            ['email' => 'admin@nexagtm.com'],
+            [
+                'name' => 'Hammad',
+                'email' => 'admin@nexagtm.com',
+                'password' => Hash::make('Hammad@123'),
+            ]
         );
 
-        $this->call(NexagtmSeeder::class);
     }
 }
