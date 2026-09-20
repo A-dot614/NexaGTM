@@ -44,7 +44,12 @@ class NexagtmController extends Controller
             ->latest()
             ->get();
 
-        return view('site.index', compact('testimonials'));
+        $playbooks = \App\Models\Playbook::where('status', 'published')
+            ->latest()
+            ->limit(2)
+            ->get();
+
+        return view('site.index', compact('testimonials', 'playbooks'));
     }
 
     /**

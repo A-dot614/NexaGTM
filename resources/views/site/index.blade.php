@@ -299,13 +299,10 @@
         <section id="case-studies" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                 <div class="max-w-2xl">
-                    <div class="text-xs font-bold tracking-[0.2em] uppercase text-[#3fb950] mb-2">Proven Track Record</div>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-                        Real Campaigns. Real Pipeline.
+                        GTM Playbooks & Case Studies
                     </h2>
-                    <p class="text-base text-[#8b949e] mt-3">
-                        Actual results achieved for our clients through custom Clay workflows and automated multichannel execution.
-                    </p>
+
                 </div>
                 <a href="{{ route('nexagtm.gtm-playbooks') }}"
                    class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#3fb950] hover:text-white transition-colors border border-[#3fb950]/40 hover:border-[#3fb950] px-4 py-2.5 rounded-full hover:bg-[#3fb950]/10 self-start md:self-end">
@@ -314,79 +311,60 @@
                 </a>
             </div>
 
+            @if($playbooks->count())
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Case Study 1: PaveTalent (Spatial UI 3D) -->
-                <div class="spatial-card spatial-spotlight bg-[#161b22] border border-[#30363d] hover:border-[#3fb950]/60 rounded-3xl p-8 sm:p-10 transition-all duration-300 shadow-xl flex flex-col justify-between group relative">
-                    <span class="style-tag style-tag-spatial">Spatial UI 3D</span>
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <span class="clay-badge clay-pill text-xs font-bold uppercase tracking-wider">
-                                Recruitment & Staffing
-                            </span>
-                            <span class="text-xs text-[#8b949e] font-mono">3 Month Sprint</span>
+                @foreach($playbooks as $index => $pb)
+                <article class="spatial-card p-6 sm:p-8 rounded-3xl flex flex-col relative group transition-all duration-300">
+                    <div class="flex items-start justify-between gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-xl bg-[#3fb950]/10 border border-[#3fb950]/30 flex items-center justify-center text-[#3fb950] flex-shrink-0">
+                            <i class="fa-solid fa-book-open text-lg"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">PaveTalent — Custom Talent Prospecting Engine</h3>
-                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
-                            Built an automated daily scraping pipeline that monitors target tech job postings, triggers Clay waterfall verification, and uses AI scoring to deliver 30 qualified candidate and client meetings every month.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="brutal-badge">Clay Waterfall</span>
-                            <span class="brutal-badge">LinkedIn Scraper</span>
-                            <span class="brutal-badge">Smartlead Sequences</span>
-                        </div>
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-[#8a9e8a] border border-[#30363d] rounded-full px-3 py-1">
+                            Playbook #{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
+                        </span>
                     </div>
-                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-[#30363d]/80 text-center">
-                        <div class="neomorph-well p-3 rounded-2xl">
-                            <div class="text-2xl font-black text-white">10K+</div>
-                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Jobs Scraped</div>
-                        </div>
-                        <div class="neomorph-well p-3 rounded-2xl">
-                            <div class="text-2xl font-black text-[#3fb950]">30+</div>
-                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Meetings / Mo</div>
-                        </div>
-                        <div class="neomorph-well p-3 rounded-2xl">
-                            <div class="text-2xl font-black text-white">1 Mo</div>
-                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Setup Time</div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Case Study 2: Impact11 (Spatial UI 3D) -->
-                <div class="spatial-card spatial-spotlight bg-[#161b22] border border-[#30363d] hover:border-[#3fb950]/60 rounded-3xl p-8 sm:p-10 transition-all duration-300 shadow-xl flex flex-col justify-between group relative">
-                    <span class="style-tag style-tag-spatial">Spatial UI 3D</span>
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <span class="clay-badge clay-pill text-xs font-bold uppercase tracking-wider">
-                                Marketing Agency
-                            </span>
-                            <span class="text-xs text-[#8b949e] font-mono">Ongoing Partner</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Impact11 — Nimo Shkedy</h3>
-                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6">
-                            Refined the ideal customer profile across key verticals, engineered dynamic Clay lead enrichment waterfalls, and established an automated outbound infrastructure that streamlined high-ticket client acquisition.
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight leading-snug">
+                        {{ $pb->name }}
+                    </h3>
+
+                    @if($pb->description)
+                        <p class="text-xs sm:text-sm text-[#8b949e] leading-relaxed mb-6 whitespace-pre-line">
+                            {{ $pb->description }}
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="brutal-badge">Clay Architecture</span>
-                            <span class="brutal-badge">ICP Validation</span>
-                            <span class="brutal-badge">Automated Routing</span>
+                    @endif
+
+                    @if($pb->video_url)
+                        <div class="mb-6">
+                            <x-playbook-video-player :playbook="$pb" />
                         </div>
+                    @endif
+
+                    <div class="mt-auto pt-6 border-t border-[#21262d] flex flex-wrap items-center gap-3">
+                        <a href="{{ $pb->template_url }}" target="_blank" rel="noopener noreferrer"
+                           class="skeuo-button px-5 py-3 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-file-lines text-xs"></i>
+                            <span>Open Template</span>
+                        </a>
+                        @if($pb->video_url)
+                            <a href="{{ $pb->video_url }}" target="_blank" rel="noopener noreferrer"
+                               class="neomorph-button px-5 py-3 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2"
+                               title="Open original video source">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-[#3fb950]"></i>
+                                <span>Source Video</span>
+                            </a>
+                        @endif
                     </div>
-                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-[#30363d]/80 text-center">
-                        <div class="neomorph-well p-3 rounded-2xl">
-                            <div class="text-2xl font-black text-white">100%</div>
-                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">ICP Match</div>
-                        </div>
-                        <div class="neomorph-well p-3 rounded-2xl">
-                            <div class="text-2xl font-black text-[#3fb950]">5.0 / 5</div>
-                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Client Rating</div>
-                        </div>
-                        <div class="neomorph-well p-3 rounded-2xl">
-                            <div class="text-2xl font-black text-white">24/7</div>
-                            <div class="text-[10px] uppercase tracking-wider text-[#8b949e] mt-0.5">Autonomous</div>
-                        </div>
-                    </div>
-                </div>
+                </article>
+                @endforeach
             </div>
+            @else
+                <div class="text-center py-16 col-span-full">
+                    <div class="text-4xl mb-3">📘</div>
+                    <p class="text-base font-bold text-white">Playbooks are being loaded.</p>
+                    <p class="text-sm text-[#8a9e8a] mt-1">New battle-tested GTM blueprints are added regularly.</p>
+                </div>
+            @endif
         </section>
 
         <hr class="minimal-divider max-w-7xl mx-auto my-6">
@@ -451,7 +429,7 @@
             </div>
         </section>
 
-       
+
         <!-- Final Cinematic CTA Section (Liquid Glass + Skeuomorphism) -->
         <section class="w-full px-4 py-16">
             <div class="max-w-5xl mx-auto">
